@@ -18,9 +18,8 @@ Once Node.js is installed, open up terminal on Mac or command on PC and run the 
 ## Installation
 
 * Navigate to your projects folder
-* `git clone https://github.com/JerrolKrause/ld-boilerplate-angular.git` - Clone repository to your local machine
-* `ren ld-boilerplate-angular new-project-name` - Rename 'ld-boilerplate-angular' to your new project name
-* `cd new-project-name` - Change into the new directory
+* `git clone https://github.com/JerrolKrause/ld-prototype-sunrise` - Clone repository to your local machine
+* `cd ld-prototype-sunrise` - Change into the new directory
 * `npm install && bower install` - Install app dependencies
 
 ## Running / Development
