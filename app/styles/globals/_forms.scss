@@ -1,0 +1,32 @@
+/***** Forms *****/
+
+//Add a search icon to a searchbox
+label{
+    position:relative;
+    &[for]:hover{color:$pos-blue;cursor:pointer;}
+    &.search:before {font-family: FontAwesome;content: "\f002";position:absolute;right:12px;color: #55595c;top: 6px;}
+    &.search-sm:before{top: 1px;}
+    &.filter:before {font-family: FontAwesome;content: "\f0b0";position:absolute;right:12px;color: #55595c;top: 4px;}
+}
+
+select{overflow:auto;}
+
+//Alerts
+.form-control + .alert-danger{
+    margin-top:10px;font-size: 0.85rem;padding: 5px;padding-left: 10px;
+    &:before{
+        font-family: FontAwesome;content:"\f071";margin-right:5px;
+    }
+}
+
+.invalid{
+    position:relative;
+    .form-control{border:1px solid #a94442;position:relative;}
+    &:before{ font-family: FontAwesome;content:"\f071";position:absolute;top:7px;right:10px; z-index: 1;color:#a94442;}
+}
+
+.form-inline{
+     .form-group {margin-right: 2rem;}
+     label{margin-right:20px;}
+    .callout{display:inline-block;padding:5px;padding-left:10px;background: #f7f8f9;}
+}

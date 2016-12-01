@@ -1,0 +1,55 @@
+<div class="modal fade" id="modalDeclineQualify" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <!--Content-->
+        <div class="modal-content">
+            <form name="frmDecline">
+
+                <!--Header-->
+                <div class="modal-header">
+                    <h4 class="modal-title" id="myModalLabel">
+                        <i class="fa fa-thumbs-down"></i> Decline Document
+                    </h4>
+                </div>
+
+                <!--Body-->
+                <div class="modal-body">
+                    <div class="modalBodyContent">
+
+                        <h5>Please list the reason for rejecting this loan:</h5>
+                        <p>
+                            <select class="form-control" ng-model="vm.reviewDocData.reason" required>
+                                <option value="" disabled>Select Reason</option>
+                                <option value="Too blurry">Needs more documents/income</option>
+                                <option value="Cut off">Wrong documents</option>
+                                <option value="A wrong document">Wrong Borrower</option>
+                                <option value="other">Other reason - enter comment</option>
+                            </select>
+                            <div class="form-group" ng-show="vm.reviewDocData.reason == 'other'">
+                            <textarea class="form-control" rows="4" placeholder="Enter comments"
+                                      ng-model="vm.reviewDocData.comments"
+                                      ng-required="vm.reviewDocData.reason == 'other'"></textarea>
+                            </div>
+                        </p>
+
+                            <h5>Add a message for the processing unit.</h5>
+                            <textarea class="form-control ng-pristine ng-valid ng-empty ng-touched" id="notesToBorrower" rows="2" ng-model="vm.reviewDocData.notes2"></textarea>
+
+                    </div>
+                </div>
+
+                <!--Footer-->
+                <div class="modal-footer">
+                    <div class="alert alert-danger icon text-xs-left" ng-show="vm.ErrorModal">Something went wrong.</div>
+                    <a href="#" data-dismiss="modal" aria-label="Close" class="pull-xs-left">Cancel</a>
+                    <button type="button" class="btn btn-info" data-dismiss="modal" aria-label="Close"
+                            ng-click="updateDocStatus()"
+                            ng-disabled="vm.WorkingModal || frmDecline.$invalid"
+                            ng-class="{'btn-sending' : vm.WorkingModal}">
+                        Submit
+                    </button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>

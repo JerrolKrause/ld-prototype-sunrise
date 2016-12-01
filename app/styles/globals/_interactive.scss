@@ -1,0 +1,89 @@
+/***** Interactive Variables *****/
+
+.fa-spin{-webkit-animation:fa-spin 2s infinite linear;animation:fa-spin 2s infinite linear}
+
+/***** Interactive Mixins *****/
+
+
+
+/***** Static CSS *****/
+
+a{
+    color:$pos-blue;
+    &:hover, &:active, &:focus{text-decoration:none;}
+}
+
+.btn{
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,.16),0 2px 10px 0 rgba(0,0,0,.12);
+    &:hover{box-shadow: 0 5px 11px 0 rgba(0,0,0,.18),0 4px 15px 0 rgba(0,0,0,.15);}
+    &.btn-info-outline {border: solid 1px $pos-blue;background:white;}
+    &.btn-info {background: $pos-blue;border-color:$pos-blue;}
+    &.btn-full{width:100%;display:block;}
+    &.btn-message-sent{
+        content: "Message Sent";
+        .fa:before{content:""}
+    }
+    &.btn-green{background: #75b534;  background: linear-gradient(#a5cd3a, #75b534);border: solid 1px #69b230;color:white;}
+    &.btn-red{background: rgba(169,3,41,1);  background: linear-gradient(rgba(169,3,41,1) 0%,rgba(143,2,34,1) 44%,rgba(109,0,25,1) 100%);border: solid 1px rgba(109,0,25,1);color:white;}
+    &.btn-blue{background: rgba(122,188,255,1); background: linear-gradient(rgba(207,231,250,1) 0%,rgba(99,147,193,1) 100%);border: solid 1px rgba(99,147,193,1) ;color:white;}
+    &.btn-ld{color:white; background: #7abcff;background: linear-gradient(#cfe7fa 0%, #6393c1 100%);border: solid 1px #6393c1;}
+    &.btn-jumbo{
+      width:100%;background: rgba(122,188,255,1); background: linear-gradient(rgba(207,231,250,1) 0%,rgba(99,147,193,1) 100%);border: solid 1px rgba(99,147,193,1);
+      h2,h3, .fa{color:white; text-shadow: 1px 1px 3px rgba(0,0,0,1);}
+      .fa{font-size: 120px;margin-bottom: 10px;}
+    }
+    &.btn-sending{
+        &:before{ font-family: FontAwesome;content: "\f110";@extend .fa-spin;display:inline-block;position:relative;left:-5px;}
+        .fa{display:none;}
+    }
+}
+.sending{
+        &:before{ font-family: FontAwesome;content: "\f110";@extend .fa-spin;display:inline-block;position:relative;left:-5px;}
+        .fa{display:none;}
+}
+.disabled{  cursor:not-allowed;color:#ccc;}
+
+.waiting .fa{
+    @extend .fa-spin;
+    &:before{content: "\f110";}
+}
+.btn-group-docview{
+   width: 51px;
+  .btn{}
+
+}
+.pie-box{
+  height:100px;overflow:hidden;position:relative;
+  .pie{position:absolute;width:100px;height:200px;overflow:hidden;left:150px;-moz-transform-origin:left center;-ms-transform-origin:left center;-o-transform-origin:left center;-webkit-transform-origin:left center;transform-origin:left center}
+  .pie.big{width:200px;height:200px;left:50px;-moz-transform-origin:center center;-ms-transform-origin:center center;-o-transform-origin:center center;-webkit-transform-origin:center center;transform-origin:center center}
+  .pie:BEFORE{content:"";position:absolute;width:100px;height:200px;left:-100px;border-radius:100px 0 0 100px;-moz-transform-origin:right center;-ms-transform-origin:right center;-o-transform-origin:right center;-webkit-transform-origin:right center;transform-origin:right center}.pie.big:BEFORE{left:0}.pie.big:AFTER{content:"";position:absolute;width:100px;height:200px;left:100px;border-radius:0 100px 100px 0}
+  .pie-1:before,.pie-1:after{background: linear-gradient(to top, rgba(246,230,180,1) 0%,rgba(237,144,23,1) 100%);}
+  .pie-2:before,.pie-2:after{background: linear-gradient(300deg, rgba(255,103,89,1) 0%,rgba(158,3,3,1) 100%);}
+  .pie-3:before{background: linear-gradient(-45deg, rgba(180,221,180,1) 0%,rgba(82,177,82,1) 52%,rgba(0,87,0,1) 100%);}
+}
+
+.chart{
+  display:table;table-layout:fixed;width:100%;max-width:700px;height:75px;margin:0 auto;margin-bottom: 25px;padding:0;background:linear-gradient(bottom,rgba(0,0,0,.1) 2%,transparent 2%);background-size:100% 50px;background-position:left top;li{position:relative;display:table-cell;vertical-align:bottom;height:75px}
+  span{border-radius: 5px 5px 0px 0px;margin:0 1em;display:block;  background: linear-gradient(to right, #a5cd3a, #75b534);animation:draw 1s ease-in-out;animation-fill-mode:forwards; width:30px;&:before{position:absolute;left:0;right:0;top:100%;padding:0;padding-top:5px;margin:0 1em;display:block;text-align:center;content:attr(title);word-wrap:break-word;width:30px}}
+}
+@keyframes draw{ from { height: 0px; }}
+
+
+
+//Rotate images
+.rot0{}
+.rot90{transform: translateY(-100%) rotate(90deg);transform-origin: left bottom;}
+.rot180{transform: translateY(-100%) translateX(-100%) rotate(180deg);transform-origin: bottom right;}
+.rot270{transform: translateX(-100%) rotate(-90deg);transform-origin: top right;}
+
+.progress2{
+  background-color:#eeeeee;border-radius:5px;overflow:hidden;height:1.5rem;margin-bottom:10px;
+  .progress2-bar{
+    background: green; height: 100%;  color:white;font-size:11px;padding-top: 5px;text-align:left;padding-left:5px;font-weight:bold;text-shadow: 1px 1px rgba(0,0,0,0.5);animation: progress 0.75s ease-in-out;animation-fill-mode:forwards;
+    &.red{background: rgba(169,3,41,1);background: linear-gradient(rgba(169,3,41,1) 0%,rgba(143,2,34,1) 44%,rgba(109,0,25,1) 100%);}
+    &.green{background: #75b534;  background: linear-gradient(#a5cd3a, #75b534);}
+    &.blue{background: rgba(122,188,255,1); background: linear-gradient(rgba(207,231,250,1) 0%,rgba(99,147,193,1) 100%);}
+  }
+}
+.fa + .progress2{margin-left:20px;}
+@keyframes progress { from {width:0%;}}

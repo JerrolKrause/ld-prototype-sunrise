@@ -1,0 +1,57 @@
+//Typography & Fonts
+
+//Additional fonts loaded by stylesheet in index file from google CDN
+
+//Icons
+
+//Defaults + Fonts
+@include media-breakpoint-up(md){
+    body{font-family: 'Open Sans', sans-serif;}
+    h1, h2{font-family: 'Montserrat', sans-serif;}
+}
+//Lazy load fonts when on mobile
+.wf-active{
+    @include media-breakpoint-down(sm){
+        body{font-family: 'Open Sans', sans-serif;}
+        h1, h2{font-family: 'Montserrat', sans-serif;}
+    }
+}
+
+//Base font sizes for XS
+html{font-size: 14px;}
+
+h1, h2, h3, h4, h5{
+  font-weight: bold;
+  .fa{color:$pos-blue;}
+}
+
+//Font sizes
+h1{font-size: 1.5rem;}
+h2{font-size: 1.25rem;}
+    h1.title, h2.title{
+        margin: 0;
+        & > .fa{background-color:$pos-blue;color:white;padding: 10px; margin-right: 5px;}
+    }
+    h1.title2, h2.title2{
+        margin: 0;border:1px solid $pos-blue;position:relative;margin-bottom:15px;background-color: rgba(94, 154, 202,.1);
+        & > .fa{background-color:$pos-blue;color:white;padding: 5px;margin-right:10px; }
+    }
+h3{font-size: 1rem;}
+h4{font-size: 0.85rem;}
+h5{font-size: 1rem;}
+.legal{font-size: 0.75em;color: #777;}
+small{font-size: 80%;font-weight: 400;}
+
+//Responsive tweaks to font sizes on various screen sizes
+@include media-breakpoint-up(sm) {
+    html{font-size: 16px;}
+
+}
+
+@include media-breakpoint-up(md) {
+
+}
+
+@include media-breakpoint-up(lg) {
+
+}

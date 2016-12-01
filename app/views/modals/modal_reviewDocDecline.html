@@ -1,0 +1,75 @@
+<div class="modal fade" id="modalDecline" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <!--Content-->
+        <div class="modal-content">
+            <form name="frmDecline">
+
+                <!--Header-->
+                <div class="modal-header">
+                    <h4 class="modal-title" id="myModalLabel">
+                        <i class="fa fa-thumbs-down"></i> Decline Document
+                    </h4>
+                </div>
+
+                <!--Body-->
+                <div class="modal-body">
+                    <div class="modalBodyContent">
+                        <div class="alert alert-danger">
+                            <i class="fa fa-ban"></i> This document will be marked as <strong>"Declined Borrower Document"</strong>.
+                        </div>
+                        <h5>An email will be sent to your borrower with the following comment:</h5>
+                        <p>
+                            <select class="form-control" ng-model="vm.reviewDocData.notes" required>
+                                <option value="" disabled>Select Reason</option>
+                                <option value="Too blurry">Too blurry</option>
+                                <option value="Cut off">Cut off</option>
+                                <option value="A wrong document">A wrong document</option>
+                                <option value="Has missing pages">Has missing pages</option>
+                                <!--
+                                <option value="other">Other reason - enter comment</option>
+                                -->
+                            </select>
+                        </p>
+                        <h5>Does the borrower still need to provide <strong ng-bind="documentActive.label"></strong>?</h5>
+                        <fieldset class="form-group">
+                                <div class="form-check">
+                                    <label class="form-check-label">
+                                        <input ng-model="vm.reviewDocData.requestType" type="radio" class="form-check-input ng-pristine ng-untouched ng-valid ng-not-empty" name="optionsRadios" value="1" ng-checked="true"> Yes
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <label class="form-check-label">
+                                        <input ng-model="vm.reviewDocData.requestType" type="radio" class="form-check-input ng-pristine ng-untouched ng-valid ng-not-empty" name="optionsRadios" value="2" > No
+                                    </label>
+                                </div>
+
+                            </fieldset>
+
+                            <h5>Add a message for the processing unit.</h5>
+                            <textarea class="form-control ng-pristine ng-valid ng-empty ng-touched" id="notesToBorrower" rows="2" ng-model="vm.reviewDocData.notes2"></textarea>
+                        <!--
+                        <div class="form-group" ng-show="vm.reviewDocData.reason == 'other'">
+                        <textarea class="form-control" rows="4" placeholder="Enter comments"
+                                  ng-model="vm.reviewDocData.comments"
+                                  ng-required="vm.reviewDocData.reason == 'other'"></textarea>
+                        </div>
+                        -->
+                    </div>
+                </div>
+
+                <!--Footer-->
+                <div class="modal-footer">
+                    <div class="alert alert-danger icon text-xs-left" ng-show="vm.ErrorModal">Something went wrong.</div>
+                    <a href="#" data-dismiss="modal" aria-label="Close" class="pull-xs-left">Cancel</a>
+                    <button type="button" class="btn btn-info" data-dismiss="modal" aria-label="Close"
+                            ng-click="updateDocStatus()"
+                            ng-disabled="vm.WorkingModal || frmDecline.$invalid"
+                            ng-class="{'btn-sending' : vm.WorkingModal}">
+                        Submit
+                    </button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>

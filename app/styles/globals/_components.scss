@@ -1,0 +1,136 @@
+/***** Component Variables *****/
+
+
+
+/***** Component Mixins *****/
+
+
+
+/***** Static CSS *****/
+
+//Alerts
+.alert{
+    &.alert-danger.icon:before{font-family: FontAwesome;content:"\f071";margin-right:5px;}
+    &.alert-success.icon:before{font-family: FontAwesome;content:"\f164";margin-right:5px;}
+}
+
+//Cards
+.card{
+    margin-bottom: 1.5rem;border-top-left-radius:0;border-top-right-radius:0;@include boxShadow();
+    .card-header > * {margin:0;}
+    &.card-btn{
+      cursor: pointer;border-radius: 0.2rem;overflow:hidden;
+      img{border:1px solid #ccc;}
+    }
+}
+.title + .card{border-top: solid 3px #5e9aca;}
+
+.modal{
+    .nav-tabs{
+        border-color:rgba(0,0,0,.2);padding-left: 10px;
+        .nav-link{border-color:rgba(0,0,0,.2); margin-top: -1px;border-bottom: 0;}
+        .nav-link.active{border-bottom: 0;margin-top: 0px;}
+        & + .modal-content{ border-top:0; border-radius: 0px 0px 3px 3px;}
+    }
+    .modal-content > h2{padding: 1rem;margin: 0;}
+}
+
+//Customize icons
+.fa{
+    &.user-uninvited, &.grey {color: #ccc;}
+    &.user-invited {color: orange;}
+    &.user-registered{color: #49E9FF;}
+    &.user-completed{color: lime;}
+    &.spacer{margin-right: 7px;}
+    &.green{color:#00DE0E;}
+    &.red{color:red;}
+}
+
+//Custom lists
+ul{
+    &.list-selectable{
+        margin:0;padding:0;list-style:none;
+        & ul{margin:0;margin-left:2rem;padding:0;list-style:none;}
+    }
+
+}
+
+.ui-select-match-item{text-align: left;font-size: .75rem;padding: 5px 10px;}
+
+//All things tables
+.table{
+    td{vertical-align:middle;}
+    .highlight{background: #fff8ed;}
+    //Angular sortable table. Requires plugin
+    &.angular-table{
+        margin: 0;
+        thead{
+            font-size:0.75rem;
+            [ts-criteria]{
+                cursor:pointer;position: relative;padding-right: 25px;text-decoration:underline;color:$pos-blue;
+                &:before{font-family: FontAwesome;position:absolute;right:10px;top: 50%;transform: translateY(-50%);content: "\f0dc";}
+                &.tablesort-asc:before{content: "\f0de";}
+                &.tablesort-desc:before{content: "\f0dd";}
+                &:hover{ background-color: rgba(0,0,0,.05);}
+            }
+        }
+        tbody td{padding: 0.5rem;}
+        h3{font-size: 1.3rem;}
+        .showIfLast{display:none;}
+    }//end angular-table
+
+    &.table-stats{font-size:0.85rem;}
+    .filter .form-control{font-weight:normal;font-size:.75rem;}
+    //Messages table{
+    @include media-breakpoint-up(md){
+        &.table-messages{
+            th:nth-child(1){ width: 75px;}
+            th:nth-child(2){ width: 170px;}
+            th:nth-child(3){ width: 180px;}
+        }
+    }
+}
+
+
+
+//Accordians. Dropdown icons are inserted with before
+.accordion {
+
+    [data-toggle="collapse"]{
+        cursor:pointer;display:block;
+        &:before{font-family: FontAwesome;content: "\f078";position:absolute;right:15px;@include transition();transform: rotate(0deg);}
+        &.collapsed:before{@include transition();transform: rotate(180deg);color:black;}
+    }
+    /**
+    padding: 0; @include boxShadow();
+    //Adds a colored number count to the accordioni like an ordered list
+     &.accordion-numbered{
+         .panel{counter-increment: step-counter;}
+         .accordion-toggle:after{content: counter(step-counter);display:block;float:left;padding:0.25rem .6rem;border-radius:50%;text-align:center;position: relative;top: -4px;left: -10px;}
+     }
+    .panel-title{
+        margin:0px;border-bottom: 1px solid #eaeaea;
+        a{
+            padding: .75rem 1.25rem;display: block;text-decoration:none;background-color: white;color:#000;position:relative;@extend .anim-pop;
+            &:before{font-family: FontAwesome;content: "\f078";position:absolute;right:15px;@include transition();}
+            &.collapsed:before{@include transition();transform: rotate(180deg);color:black;}
+            &:hover{
+                color: #0275d8;
+                .fa-chevron-up{color: #0275d8;}
+            }
+        }
+        .fa-chevron-up{float: right;font-weight: normal; font-size:1rem;color: #333;margin-top: 5px;@include transition();}
+        .collapsed .fa-chevron-up{@include transition();transform: rotate(180deg);}
+    }
+    .panel-collapse{background-color:white;box-shadow: inset 0px 0px 20px 0px rgba(0,0,0,0.1);background-color:#fbfbfb;}
+    .panel-collapse-body {padding:1rem;}
+        */
+}
+
+//Email CC box
+.contacts-cc{
+    fieldset {float:left;padding-right:15px;margin-bottom:0;}
+}
+
+
+.review-docs{ padding: 10px;padding-bottom:20px;color: #fff;background: rgba(0,0,0,0.85);}

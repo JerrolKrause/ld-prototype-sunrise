@@ -1,0 +1,27 @@
+/***** Navigation Elements *****/
+
+
+/***** Nav mixins *****/
+
+
+/***** Static CSS *****/
+
+.navbar-toggler{
+    &:after{ font-family: FontAwesome;content: "\f077";@include transition();    display: inline-block;transform: rotate(180deg);font-size:75%;}
+    &.collapsed:after{@include transition();transform: rotate(0deg);}
+}
+
+@include media-breakpoint-down(sm){
+    .navbar-toggleable-sm{
+        .nav-link{display:block;}
+
+    }
+
+}
+
+//Force a scrollbar to show on mobile chrome nav when the sidebar is longer than the view screen
+::-webkit-scrollbar { width: 6px !important; background: rgba(0,0,0,0.08) !important; }
+::-webkit-scrollbar-track {-webkit-border-radius: 10px !important; border-radius: 10px !important;}
+::-webkit-scrollbar-thumb { -webkit-border-radius: 10px !important;background: rgba(0,0,0,0.3) !important;}
+::-webkit-scrollbar-thumb:window-inactive {background: rgba(0,0,0,0.3) !important; }
+

@@ -1,0 +1,47 @@
+/***** Layout Variables *****/
+
+
+/***** Layout Mixins *****/
+
+
+/***** Layout CSS *****/
+body{background: #f7f8f9;}
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {display: none !important;}
+img{max-width:100%;}
+.red{color:red;}
+
+header{
+    color:white;
+    .header-main{
+        background-color:$pos-blue;
+        h1{
+            margin:0;
+            a{padding-left: 10px;font-size: 1.5rem; font-weight: bold;color: #fff;text-shadow: 1px 1px 3px #333;}
+            a span{border-left: solid 1px #336699;padding-left:10px;position: relative;top: 3px; }
+        }
+        .header-user{padding: 1rem;}
+    }
+
+    .header-info{
+        font-size:0.85rem;background: #f9fafd;border-bottom: solid 1px #ddd;
+        p{margin:0;color: #777;}
+        span{font-size:0.75rem;color: #999;}
+        & > div{padding: .75rem;border-right: solid 1px #ddd;}
+    }
+
+    .header-nav{
+        @include boxShadow();background:white;
+        .nav-link{padding:0.5rem 0.75rem;margin:0!important;border-bottom: 3px solid white;}
+        .nav-link.active{border-bottom-color:  #5e9aca;}
+        .btn{margin-top:0.5rem;margin-right:0.5rem;}
+    }
+}
+
+
+main{
+    padding: 1rem 0;
+}
+
+@include media-breakpoint-down(sm){
+    .col-xs-12{margin-bottom:1rem;}
+}

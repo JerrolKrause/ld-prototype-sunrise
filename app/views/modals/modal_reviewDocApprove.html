@@ -1,0 +1,35 @@
+<div class="modal fade" id="modalApprove" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+
+            <!--Header-->
+            <div class="modal-header">
+                <h4 class="modal-title" id="myModalLabel"><i class="fa fa-thumbs-up"></i> Approve Document</h4>
+            </div>
+
+            <!--Body-->
+            <div class="modal-body">
+                <div class="modalBodyContent">
+                    <div class="alert alert-success">
+                        <p><i class="fa fa-cloud-upload"></i> You are approving this document as <strong ng-bind="documentActive.label"></strong>.</p>
+                        <hr>
+                        <p> Once you submit, this document will be stored in M4docs as <strong ng-bind="documentActive.label"></strong></p>
+                    </div>
+                </div>
+            </div>
+
+            <!--Footer-->
+            <div class="modal-footer">
+                <div class="alert alert-danger icon text-xs-left" ng-show="vm.ErrorModal">Something went wrong.</div>
+                <a href="#" data-dismiss="modal" aria-label="Close" class="pull-xs-left">Cancel</a>&nbsp; &nbsp;
+                <button type="button" class="btn btn-info" data-dismiss="modal"
+                        ng-click="updateDocStatus()"
+                        ng-disabled="vm.WorkingModal"
+                        ng-class="{'btn-sending' : vm.WorkingModal}">
+                    Submit
+                </button>
+            </div>
+
+        </div>
+    </div>
+</div>

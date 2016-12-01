@@ -1,0 +1,60 @@
+<style>
+body{padding-bottom:60px;}
+</style>
+
+<div class="container">
+
+<a ui-sref="index" class="pull-xs-right" ><strong><i class="fa fa-caret-left"></i> Go Back</strong> to Dashboard</a>
+<h2 class="title"><i class="fa fa-search-plus"></i> Review Documents</h2>
+<div class="card">
+    <div class="card-block">
+        <h3>Document Indexed As: <strong ng-bind="documentActive.label"></strong></h3>
+        <hr/>
+        <div class="row">
+          <div class="col-xs-12 col-md-9">
+            <div>
+              <a href="" class="" ng-click="rotate(1)"><i class="fa fa-undo" aria-hidden="true"></i> Rotate Left</a>
+              <a href="" class="pull-xs-right" ng-click="rotate(0)">
+                <i class="fa fa-repeat" aria-hidden="true"></i> Rotate Right
+              </a>
+            </div>
+            <hr/>
+            <div style="min-height:825px;">
+              <img src="images/documents/{{documentActive.image}}" class="img-fluid" ng-class="docRotateClass"/>
+            </div>
+          </div>
+
+          <div class="col-xs-12 col-md-3">
+            <div ng-repeat="doc in document.docs track by $index" ng-if="!doc.complete">
+              <div class="anim-pop card card-btn" ng-click="setActiveDoc($index)">
+                <div class="card-header"><span ng-bind="doc.label"></span></div>
+                <div class="card-block"><img ng-src="images/documents/{{doc.image}}" class="img-fluid" /></div>
+              </div>
+          </div>
+        </div>
+
+    </div>
+  </div>
+</div>
+<div class="navbar navbar-fixed-bottom review-docs">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <h5 n1g-show="vm.document.Category">Is this document a/n: <strong ng-bind="vm.document.PublicName"></strong> ?</h5>
+                            </div>
+                            <div class="col-xs-4" ng-class="{'col-sm-6' : vm.document.PublicName == 'Initial Stips'}">
+                                <a href="" class="btn btn-danger btn-sm btn-block" data-toggle="modal" data-target="#modalDecline"><i class="fa fa-thumbs-down"></i> Reject</a>
+                            </div>
+                            <div class="col-xs-4" ng-class="{'col-sm-6' : vm.document.PublicName == 'Initial Stips'}">
+                                <a href="" class="btn btn-info btn-sm btn-block" data-toggle="modal" data-target="#modalApproveAs"><i class="fa fa-thumbs-up"></i> Mark as..</a>
+                            </div>
+                            <div class="col-xs-4" ng-if="vm.document.PublicName != 'Initial Stips'">
+                                <a href="" class="btn btn-success btn-sm btn-block" data-toggle="modal" data-target="#modalApprove"><i class="fa fa-thumbs-up"></i> Accept</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div ng-include="'views/modals/modal_reviewDocDecline.html'"></div>
+                <div ng-include="'views/modals/modal_reviewDocApprove.html'"></div>
+                <div ng-include="'views/modals/modal_reviewDocApproveAs.html'"></div>

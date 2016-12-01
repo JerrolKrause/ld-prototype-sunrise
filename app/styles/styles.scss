@@ -1,0 +1,35 @@
+/* You can add global styles to this file, and also import other style files */
+
+/**
+Masterpage and sitewide global elements should be placed within one of these scss files
+Component specific elements should sit in their component's stylesheet.
+**/
+
+//Bootstrap scss files
+@import 'bootstrap/scss/variables';
+@import 'bootstrap/scss/mixins';
+@import 'bootstrap/scss/bootstrap';
+
+//Vendor stylesheets
+@import url('vendor/select.min.css');//Typeahead script from select plugin
+@import url('//fonts.googleapis.com/css?family=Arvo:400');
+@import url('//fonts.googleapis.com/css?family=Lato:400,700');
+@import url('vendor/font-awesome.min.css');
+
+//Global scss components
+@import 'globals/variables';
+@import 'globals/mixins';
+
+//Site globals
+@import 'globals/layout';
+@import 'globals/nav';
+@import 'globals/typography';
+@import 'globals/interactive';
+@import 'globals/forms';
+@import 'globals/components';
+@import 'globals/animation';
+
+
+
+//Page Specific Styles
+//@import 'pages/homepage';
