@@ -1,0 +1,61 @@
+<div class="modal fade" id="modalDeclineQualifyLoan" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <!--Content-->
+        <div class="modal-content">
+            <form name="frmDecline">
+
+                <!--Header-->
+                <div class="modal-header">
+                    <h4 class="modal-title" id="myModalLabel">
+                        <i class="fa fa-thumbs-down"></i> Decline Loan
+                    </h4>
+                </div>
+
+                <!--Body-->
+                <div class="modal-body">
+                    <div class="modalBodyContent">
+                      
+                        <h5>Please list the reason for rejecting this loan:</h5>
+                          <p>
+                              <select class="form-control" ng-model="vm.reviewDocData.reason" required>
+                                  <option value="" disabled>Select Reason</option>
+                                  <option value="moredocs">Needs more documents/income</option>
+                                  <option value="wrongdocs">Wrong documents</option>
+                                  <option value="A wrong document">Wrong Borrower</option>
+                                  <option value="other">Other reason - enter comment</option>
+                              </select>
+                          </p>
+                            <div class="form-group" ng-show="vm.reviewDocData.reason == 'other'">
+                            <textarea class="form-control" rows="4" placeholder="Enter comments"
+                                      ng-model="vm.reviewDocData.comments"
+                                      ng-required="vm.reviewDocData.reason == 'other'"></textarea>
+                            </div>
+
+                        <div ng-show="vm.reviewDocData.reason == 'moredocs'">
+                            <h5>Request Additional Documents</h5>
+                            <p>
+                              <select id="selectApproveAs" class="form-control" ng-model="vm.reviewDocData.isAcceptAs" multiple>
+                                  <option ng-repeat="doc in docNames track by $index" ng-value="doc">{{doc}}</option>
+                              </select>
+                            </p>
+                        </div>
+                        <h5>Add a message for the processing unit.</h5>
+                        <textarea class="form-control ng-pristine ng-valid ng-empty ng-touched" id="notesToBorrower" rows="2" ng-model="vm.reviewDocData.notes2"></textarea>
+
+                    </div>
+                </div>
+
+                <!--Footer-->
+                <div class="modal-footer">
+                    <div class="alert alert-danger icon text-xs-left" ng-show="vm.ErrorModal">Something went wrong.</div>
+                    <a href="#" data-dismiss="modal" aria-label="Close" class="pull-xs-left">Cancel</a>
+                    <a href="#" class="btn btn-info" data-dismiss="modal" aria-label="Close" ng-click="nextLoan(docNext.loanNum)"
+                            ng-class="{'btn-sending' : vm.WorkingModal}">
+                        Submit
+                    </a>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>

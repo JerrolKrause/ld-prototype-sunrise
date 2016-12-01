@@ -62,13 +62,13 @@ angular
                         metaDescription: 'Accuracy Queue',
                         controller: 'AccuracyCtrl'
                     })
-                    .state('accuracy.examination', {
-                        url: 'examination/',
-                        templateUrl: 'views/routes/accuracy/examination.html',
-                        metaTitle: 'Accuracy Examination Window',
-                        metaDescription: 'Accuracy Examination Window',
-                        controller: 'ExaminationCtrl'
-                    })
+                        .state('accuracy.examination', {
+                            url: 'examination/',
+                            templateUrl: 'views/routes/accuracy/examination.html',
+                            metaTitle: 'Accuracy Examination Window',
+                            metaDescription: 'Accuracy Examination Window',
+                            controller: 'ExaminationCtrl'
+                        })
 
                     //Qualify
                     .state('qualify', {
@@ -78,13 +78,13 @@ angular
                         metaDescription: 'Qualify Queue',
                         controller: 'AccuracyCtrl'
                     })
-                    .state('qualify.examination', {
-                        url: 'examination/',
-                        templateUrl: 'views/routes/qualify/examination.html',
-                        metaTitle: 'Qualify Examination Window',
-                        metaDescription: 'Qualify Examination Window',
-                        controller: 'QualifyExamCtrl'
-                    })
+                        .state('qualify.examination', {
+                            url: 'examination/{LoanID}',
+                            templateUrl: 'views/routes/qualify/examination.html',
+                            metaTitle: 'Qualify Examination Window',
+                            metaDescription: 'Qualify Examination Window',
+                            controller: 'QualifyExamCtrl'
+                        })
 
                     .state('coming-soon', {
                         url: '/coming-soon',

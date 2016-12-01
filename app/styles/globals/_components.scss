@@ -22,6 +22,7 @@
       cursor: pointer;border-radius: 0.2rem;overflow:hidden;
       img{border:1px solid #ccc;}
     }
+     .table{margin:0;}
 }
 .title + .card{border-top: solid 3px #5e9aca;}
 
@@ -42,8 +43,10 @@
     &.user-registered{color: #49E9FF;}
     &.user-completed{color: lime;}
     &.spacer{margin-right: 7px;}
-    &.green{color:#00DE0E;}
-    &.red{color:red;}
+    &.green{color:#75b534;}
+    &.red{color:#8f0222;}
+    &.yellow{color:#edd000;}
+    &.blue{color:$pos-blue;}
 }
 
 //Custom lists
@@ -79,7 +82,10 @@ ul{
         .showIfLast{display:none;}
     }//end angular-table
 
-    &.table-stats{font-size:0.85rem;}
+    &.table-stats{
+      font-size:0.85rem;
+      td:first-child{width: 61px;}
+    }
     .filter .form-control{font-weight:normal;font-size:.75rem;}
     //Messages table{
     @include media-breakpoint-up(md){
