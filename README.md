@@ -1,4 +1,4 @@
-# ld-boilerplate-angular
+# ld-prototype-sunrise
 
 A fully scaffolded boilerplate for rapid website development. Based on Angular.JS and Bootstrap. Utilizes NPM, Bower, Yeoman and Grunt.
 
