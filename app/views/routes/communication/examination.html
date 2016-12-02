@@ -49,10 +49,11 @@ main{padding-top:0px;}
 </div>
 
 
-<div class="container-fluid">
-  <a ui-sref="qualify" class="pull-xs-right" ><strong><i class="fa fa-caret-left"></i> Go Back</strong> to Dashboard</a>
+<div class="container-fluid"><br/>
+  <a ui-sref="communication" class="pull-xs-right" ><strong><i class="fa fa-caret-left"></i> Go Back</strong> to Dashboard</a>
   <h1>Viewing Loan#: <strong ng-bind="loanCurrent.loanNum"></strong></h1>
   <hr/>
+  <button class="btn btn-blue btn-sm pull-xs-right" data-toggle="modal" data-target="#modalApproveAs"><i class="fa fa-envelope"></i> Send Email To Borrowers</button>
 <h2 class="title"><i class="fa fa-search-plus"></i> List Of All Documents</h2>
 <div class="card">
   <table border="0" class="table table-sm table-bordered table-hover angular-table" id="requestTable" ts-wrapper>
@@ -85,7 +86,6 @@ main{padding-top:0px;}
                                 <i class="fa fa-thumbs-up green" ng-if="doc.queueStatus2 == 'approved' "></i>
                                 <i class="fa fa-thumbs-down red" ng-if="doc.queueStatus2 == 'declined' "></i>
                                 <i class="fa fa-eye-slash gray" ng-if="doc.queueStatus2 == 'not-reviewed' "></i>
-                                <i class="fa fa-remove gray" ng-if="!doc.queueStatus2" style="opacity:0.5;"></i>
                               </td>
                               <td>
                                 <label class="form-check-label" ng-if="doc.queueStatus == 'declined' || doc.queueStatus2 == 'declined'">

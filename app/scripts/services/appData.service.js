@@ -42,7 +42,7 @@ angular.module('sdpApp')
 
             //Docs
             me.docs = [];
-            for (e = 0; e < Math.floor((Math.random() * 60) + 1); e++) {
+            for (e = 0; e < Math.floor((Math.random() * 80) + 1); e++) {
               var docName = {
                 label : docNames[Math.floor(Math.random()*docNames.length)],
                 image : docFileNames[Math.floor(Math.random()*docFileNames.length)]

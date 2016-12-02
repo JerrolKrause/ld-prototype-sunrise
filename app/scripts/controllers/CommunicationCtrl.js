@@ -25,6 +25,8 @@ angular.module('sdpApp')
 
         if(!$scope.loanCurrent){
           $scope.loanCurrent = appDataSvc.loanData[0];
-          $scope.docNext = appDataSvc.loanData[1]
         }
+
+console.log($scope.loanCurrent);
+
   });
