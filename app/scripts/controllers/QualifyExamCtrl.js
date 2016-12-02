@@ -39,7 +39,7 @@ angular.module('sdpApp')
         console.log('I exist already')
         $scope['docCurrent'+paneNum] = null;
         $scope.loanCurrent.docs[index]['pane'+paneNum] = false;
-} else {
+      } else {
       //Set the current active doc of the selected pane to this one
        $scope['docCurrent'+paneNum] = $scope.loanCurrent.docs[index];
 
@@ -48,7 +48,7 @@ angular.module('sdpApp')
        });
        //Set current doc to this pane true
        $scope.loanCurrent.docs[index]['pane'+paneNum] = true;
-}
+     }
 
 
 

@@ -8,8 +8,23 @@
  * Controller of the sdpApp
  */
 angular.module('sdpApp')
-  .controller('CommunicationCtrl', function ($scope,appDataSvc) {
+  .controller('CommunicationCtrl', function ($scope,appDataSvc, $state,$stateParams) {
 
-    $scope.docs = appDataSvc.docs;
 
+        $scope.docNames = appDataSvc.docNames;
+
+        var count = 0;
+        //Get the correct loan from the loan number
+        angular.forEach(appDataSvc.loanData, function(value,index){
+          if(value.loanNum == $stateParams.LoanID){
+            $scope.loanCurrent = value;
+            $scope.docNext = appDataSvc.loanData[count + 1]
+          }
+          count ++;
+        });
+
+        if(!$scope.loanCurrent){
+          $scope.loanCurrent = appDataSvc.loanData[0];
+          $scope.docNext = appDataSvc.loanData[1]
+        }
   });

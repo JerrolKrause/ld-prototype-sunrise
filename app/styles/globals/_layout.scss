@@ -22,12 +22,7 @@ header{
         .header-user{padding: 1rem;}
     }
 
-    .header-info{
-        font-size:0.85rem;background: #f9fafd;border-bottom: solid 1px #ddd;
-        p{margin:0;color: #777;}
-        span{font-size:0.75rem;color: #999;}
-        & > div{padding: .75rem;border-right: solid 1px #ddd;}
-    }
+
 
     .header-nav{
         @include boxShadow();background:white;
@@ -35,6 +30,13 @@ header{
         .nav-link.active{border-bottom-color:  #5e9aca;}
         .btn{margin-top:0.5rem;margin-right:0.5rem;}
     }
+}
+
+.header-info{
+    font-size:0.85rem;background: #f9fafd;border-bottom: solid 1px #ddd;
+    p{margin:0;color: #777;}
+    span{font-size:0.75rem;color: #999;}
+    & > div{padding: .75rem;border-right: solid 1px #ddd;}
 }
 
 

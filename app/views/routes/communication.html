@@ -1,26 +1,172 @@
+<ui-view>
 <div class="container">
-  <a ui-sref="dashboard" class="pull-xs-right goBack" ><strong><i class="fa fa-caret-left"></i> Go Back</strong> to Income Verification Dashboard</a>
-  <h1 class="title"><i class="fa fa-comments" aria-hidden="true"></i> Communication Dashboard</h1>
+<a ui-sref="dashboard" class="pull-xs-right goBack" ><strong><i class="fa fa-caret-left"></i> Go Back</strong> to Income Verification Dashboard</a>
+<h1 class="title"><i class="fa fa-check-circle" aria-hidden="true"></i> Comminucation Dashboard</h1>
 
-  <div class="fadeIn">
-    <div class="card">
-        <div class="card-block">
+<div class="fadeIn">
+  <div class="card">
+      <div class="card-block">
+        <div class="row">
 
-          <table class="table table-sm">
-            <thead>
-              <tr>
-                <th>Hello World</th>
-              </th>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Test</td>
-              </tr>
-            </tbody>
-          </table>
+            <div class="col-xs-12 col-md-4 fadeIn">
+              <h3><i class="fa fa-clock-o" aria-hidden="true"></i> Time In Queue</h3>
+              <hr/>
+              <div class="pie-box">
+                <style>
+                  .pie-1:before{transform:rotate(31deg);}
+                  .pie-2:before{transform:rotate(60deg);}
+                  .pie-3:before{transform:rotate(261deg);}
+                </style>
+                <div class="pie pie-1" style="transform:rotate(0deg);"></div>
+                <div class="pie pie-2" style="transform:rotate(30deg);"></div>
+                <div class="pie pie-3 big" style="transform:rotate(100deg);"></div>
+              </div>
+              <table class="table table-sm">
+                <tbody>
+                    <tr>
+                      <td>2 minutes or less</td>
+                      <td class="text-xs-right" ng-bind="stats.green">154</td>
+                    </tr>
+                    <tr>
+                      <td>5 minutes or less</td>
+                      <td class="text-xs-right" ng-bind="stats.yellow">297</td>
+                    </tr>
+                    <tr>
+                      <td>More than 5 minutes</td>
+                      <td class="text-xs-right" ng-bind="stats.red">460</td>
+                    </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="col-xs-12 col-md-4 fadeIn" style="animation-delay:.1s;">
+              <h3><i class="fa fa-calendar" aria-hidden="true"></i> Daily Progress</h3>
+              <hr/>
+              <ul class="chart">
+                <li><span style="height:50%" title="50"></span></li>
+                <li><span style="height:15%" title="15"></span></li>
+                <li><span style="height:35%" title="35"></span></li>
+                <li><span style="height:55%" title="55"></span></li>
+                <li><span style="height:100%" title="100"></span></li>
+                <li><span style="height:50%" title="54"></span></li>
+                <li><span style="height:15%" title="15"></span></li>
+              </ul>
+
+              <div style="height:30px;"></div>
+
+              <h3><i class="fa fa-calendar" aria-hidden="true"></i> Weekly Progress</h3>
+              <hr/>
+              <ul class="chart">
+                <li><span style="height:25%" title="25"></span></li>
+                <li><span style="height:65%" title="65"></span></li>
+                <li><span style="height:98%" title="98"></span></li>
+                <li><span style="height:85%" title="85"></span></li>
+                <li><span style="height:76%" title="76"></span></li>
+                <li><span style="height:56%" title="56"></span></li>
+                <li><span style="height:76%" title="76"></span></li>
+              </ul>
+            </div>
+
+            <div class="col-xs-12 col-md-4 fadeIn" style="animation-delay:.2s;">
+              <h3><i class="fa fa-heartbeat" aria-hidden="true"></i> Loans Processed Hourly Break Down</h3>
+              <hr/>
+              <table class="table table-striped table-sm table-stats">
+                <tr>
+                  <td>Docs Reviewed/Hour</td>
+                  <td class="text-xs-right"><strong>134</strong></td>
+                </tr>
+                <tr>
+                  <td>Docs Reviewed Yesterday</td>
+                  <td class="text-xs-right"><strong>624</strong></td>
+                </tr>
+                <tr>
+                  <td>Average Time In Queue</td>
+                  <td class="text-xs-right"><strong style="color:#75b534;">1:25</strong></td>
+                </tr>
+              </table>
+
+              <h3 class="text-xs-left"><i class="fa fa-hourglass" aria-hidden="true"></i> Status</h3>
+              <hr/>
+              <i class="fa fa-thumbs-up pull-xs-left"></i>
+              <div class="progress2">
+                  <div class="progress2-bar green" style="width:75%;">1,465</div>
+              </div>
+
+              <i class="fa fa-thumbs-up pull-xs-left"></i>
+              <div class="progress2">
+                  <div class="progress2-bar blue" style="width:15%;">367</div>
+              </div>
+
+              <i class="fa fa-thumbs-down pull-xs-left"></i>
+              <div class="progress2">
+                  <div class="progress2-bar red" style="width:10%;">201</div>
+              </div>
+            </div>
 
         </div>
-    </div>
+      </div>
+  </div>
   </div>
 
+<div class="fadeIn">
+<a ui-sref="qualify.examination({ LoanID: loanData[0].loanNum })" class="btn btn-ld pull-xs-right"><i class="fa fa-hand-o-right" aria-hidden="true"></i> Begin Examination</a>
+  <h2 class="title"><i class="fa fa-file-text" aria-hidden="true"></i> <span ng-bind="loanData.length"></span> Documents Pending Review</h2>
+    <div class="card">
+      <table border="0" class="table table-sm table-bordered table-striped table-hover angular-table no-footer" role="grid" aria-describedby="example3_info" ts-wrapper>
+                    <thead class="thead-default">
+                        <tr role="row">
+                            <th scope="col" ts-criteria="loanNum" style="width: 115px;">Loan Number</th>
+                            <th>Loan Status</th>
+                            <th scope="col" ts-criteria="docs">Document Name</th>
+                            <th scope="col" ts-criteria="borrowers" style="width:27%;">Borrower Name (s)</th>
+                            <th scope="col" ts-criteria="inQueue" ts-default="descending" style="width: 125px;">Time in Queue</th>
+                        </tr>
+                        <tr class="filter">
+                            <th>
+                                <label class="filter">
+                                    <input class="form-control form-control-sm" placeholder="Filter loan #" ng-model="vm.search.loanNum" />
+                                </label>
+                            </th>
+                            <th>
+                              <label class="filter">
+                                  <input class="form-control form-control-sm" placeholder="Filter loan #" ng-model="vm.search.loanStatus" />
+                              </label>
+                            </th>
+                            <th>
+                              <label class="filter">
+                                  <input class="form-control form-control-sm" placeholder="Filter by doc name" ng-model="vm.search.docs" />
+                              </label></th>
+                            <th>
+                              <label class="filter">
+                                  <input class="form-control form-control-sm" placeholder="Filter by borrower Name" ng-model="vm.search.borrowers" />
+                              </label>
+                            </th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="ld in loanData | filter:vm.search track by $index" ts-repeat>
+                          <td>
+                            <a href="" ui-sref="communication.examination({ LoanID: ld.loanNum })"  ng-bind="ld.loanNum"></a>
+                          </td>
+                          <td ng-bind="ld.loanStatus"></td>
+                          <td>
+                            <div ng-repeat="doc in ld.docs track by $index">
+                              <a href="#" ng-bind="doc.label"></a>
+                            </div>
+                          </td>
+                          <td>
+                            <div ng-bind="ld.borrowerSingle"></div>
+                          </td>
+                          <td ng-class="{'red' : ld.inQueue > 4}">
+                              <span ng-bind="ld.inQueue"></span> minute/s
+                          </td>
+                        </tr>
+                    </tbody>
+                </table>
+    </div>
 </div>
+
+
+</div>
+</ui-view>
