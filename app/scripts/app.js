@@ -63,11 +63,11 @@ angular
                         controller: 'CommunicationCtrl'
                     })
                         .state('communication.examination', {
-                            url: 'examination/',
+                            url: 'examination/{LoanID}',
                             templateUrl: 'views/routes/communication/examination.html',
                             metaTitle: 'Communication Examination Window',
                             metaDescription: 'Communication Examination Window',
-                            controller: 'CommunicationCtrl'
+                            controller: 'CommunicationExamCtrl'
                         })
 
 
