@@ -15,7 +15,9 @@ angular.module('sdpApp')
           var docNames = ['1099R',          'Alimony ',          'Annuity statement',          'Award letter',          'Business tax returns (1120s)',          'Capital gains income',          'Child support income ',          'Foreign based income',          'Foster care ',          'Interest income ',          'IRA statement',          'K1',          'Notes receivable',          'Partnership tax returns (1065s)',          'Paystub',          'Pension document',          'Personal tax returns (1040s)',          'Rental income',          'Retirement statement',          'Social security benefit statement',          'Temporary leave income',          'Tip income',          'Trust income',          'Unemployment benefits',          'VA benefit statement','W2'];
           var docFileNames = ['foreign-tax-credit.png','ira-statement.png','k1.png','1099R.gif','annuity.jpg','award.jpg','1120.jpg'];
           var loanStatus = ['STP','Docs Out','Pending UW','Lead','PENCIL'];
-          var docStatus = ['new','approved','requested']
+          var docStatus = ['new','approved','requested'];
+          var queueStatus = ['approved','approved','declined','not-reviewed'];
+          var notes = ['','','','','Borrower reuploaded this','Document is blurry, re-requesting','Document numbers to not match up']
 
           //Generate 50 entries
           for (i = 0; i < 54; i++) {
@@ -46,7 +48,17 @@ angular.module('sdpApp')
                 image : docFileNames[Math.floor(Math.random()*docFileNames.length)]
               }
 
-              docName.status = docStatus[Math.floor(Math.random()*docStatus.length)]
+              docName.status = docStatus[Math.floor(Math.random()*docStatus.length)];
+              docName.queueStatus = queueStatus[Math.floor(Math.random()*queueStatus.length)];
+
+              if(docName.queueStatus === 'approved'){
+                docName.queueStatus2 = queueStatus[Math.floor(Math.random()*queueStatus.length)];
+              } else {
+                docName.queueStatus2 = false;
+              }
+
+
+              docName.notes = notes[Math.floor(Math.random()*notes.length)]
 
               me.docs.push(docName);
             }

@@ -14,6 +14,7 @@
     &.alert-success.icon:before{font-family: FontAwesome;content:"\f164";margin-right:5px;}
 }
 
+
 //Cards
 .card{
     margin-bottom: 1.5rem;border-top-left-radius:0;border-top-right-radius:0;@include boxShadow();
@@ -47,6 +48,7 @@
     &.red{color:#8f0222;}
     &.yellow{color:#edd000;}
     &.blue{color:$pos-blue;}
+    &.gray{color:#878e93;}
 }
 
 //Custom lists

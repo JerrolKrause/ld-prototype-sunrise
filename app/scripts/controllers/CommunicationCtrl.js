@@ -10,6 +10,6 @@
 angular.module('sdpApp')
   .controller('CommunicationCtrl', function ($scope,appDataSvc) {
 
-    $scope.docs = appDataSvc.docs;
-
+    $scope.loanData = appDataSvc.loanData;
+  
   });
