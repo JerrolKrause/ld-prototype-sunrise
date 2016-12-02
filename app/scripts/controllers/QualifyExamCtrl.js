@@ -18,11 +18,14 @@ angular.module('sdpApp')
       $scope.docNext = appDataSvc.loanData[1]
     }
 
-    sortDocs()
+    sortDocs();
 
     $scope.docCurrent1 = $scope.docsReviewing[0];
 
-    $scope.docCurrent1.pane1 = true;
+    if($scope.docCurrent1){
+      $scope.docCurrent1.pane1 = true;
+    }
+
     $scope.pane1index = 0;
     $scope.pane2index = 0;
 
@@ -31,8 +34,6 @@ angular.module('sdpApp')
     * Load a document into pane 1 or pane 2. Used for doc index interaction on right sidebar
     */
     $scope.loadDocumentPane = function(paneNum, index){
-      console.log(paneNum, index)
-
 
       if($scope.loanCurrent.docs[index]['pane'+paneNum]){
         console.log('I exist already')

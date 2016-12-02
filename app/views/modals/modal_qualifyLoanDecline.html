@@ -14,7 +14,7 @@
                 <!--Body-->
                 <div class="modal-body">
                     <div class="modalBodyContent">
-                      
+
                         <h5>Please list the reason for rejecting this loan:</h5>
                           <p>
                               <select class="form-control" ng-model="vm.reviewDocData.reason" required>
@@ -26,9 +26,9 @@
                               </select>
                           </p>
                             <div class="form-group" ng-show="vm.reviewDocData.reason == 'other'">
-                            <textarea class="form-control" rows="4" placeholder="Enter comments"
-                                      ng-model="vm.reviewDocData.comments"
-                                      ng-required="vm.reviewDocData.reason == 'other'"></textarea>
+                                  <textarea class="form-control" rows="4" placeholder="Enter comments"
+                                            ng-model="vm.reviewDocData.comments"
+                                            ng-required="vm.reviewDocData.reason == 'other'"></textarea>
                             </div>
 
                         <div ng-show="vm.reviewDocData.reason == 'moredocs'">

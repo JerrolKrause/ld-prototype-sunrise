@@ -4,62 +4,25 @@
 
             <!--Header-->
             <div class="modal-header">
-                <h4 class="modal-title" id="myModalLabel"><i class="fa fa-thumbs-up"></i> Mark Document As Something Else...</h4>
+                <h4 class="modal-title" id="myModalLabel"><i class="fa fa-thumbs-up"></i> Request Documents</h4>
             </div>
 
             <!--Body-->
             <div class="modal-body">
                 <div class="modalBodyContent">
-                    <h5>What document did your borrower upload?</h5>
+                    <h5>What documents do you need?</h5>
 
                     <p>
                         <div class="selectBorrowersBox">
-                            <select id="selectApproveAs" class="form-control" ng-model="vm.reviewDocData.isAcceptAs">
-                                <option value="" disabled selected>Select the appropriate document type:</option>
+                            <select id="selectApproveAs" class="form-control" ng-model="vm.reviewDocData.isAcceptAs" multiple>
                                 <option ng-repeat="doc in docNames track by $index" ng-value="doc">{{doc}}</option>
                             </select>
                         </div>
                     </p>
 
-
-                    <h5>Does the borrower still need to provide <strong ng-bind="documentActive.label"></strong>?</h5>
-                    <fieldset class="form-group">
-                            <div class="form-check">
-                                <label class="form-check-label">
-                                    <input ng-model="vm.reviewDocData.requestType" type="radio" class="form-check-input ng-pristine ng-untouched ng-valid ng-not-empty" name="optionsRadios" value="1" ng-checked="true"> Yes
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <label class="form-check-label">
-                                    <input ng-model="vm.reviewDocData.requestType" type="radio" class="form-check-input ng-pristine ng-untouched ng-valid ng-not-empty" name="optionsRadios" value="2" > No
-                                </label>
-                            </div>
-
-                        </fieldset>
-
                         <h5>Add a message for the processing unit.</h5>
                         <textarea class="form-control ng-pristine ng-valid ng-empty ng-touched" id="notesToBorrower" rows="2" ng-model="vm.reviewDocData.notes"></textarea>
 
-                   <!--
-                    <p>
-                        <ui-select tagging-label="false" ng-model="vm.reviewDocData.acceptAs"
-                                   theme="bootstrap" sortable="true" title="Type a document name to search" required>
-                            <ui-select-match placeholder="Type a document name to search">{{$select.selected}}</ui-select-match>
-                            <ui-select-choices repeat="type in vm.DocTypes | filter:$select.search track by type">
-                                {{::type}}
-                            </ui-select-choices>
-                        </ui-select>
-                    </p>
-                    -->
-                    <!--
-                    <hr>
-                    <h5>Re-Request Document:</h5>
-                    <p><strong>Doc Type:</strong> {{vm.document.DocumentName}}</p>
-                    <p>Enter a message to your borrower:</p>
-                    <div class="form-group">
-                        <textarea class="form-control" id="messageTextArea" rows="7" style="height:80px;" ng-model="vm.reviewDocData.notes">The document you uploaded was a {{vm.document.DocumentName}}. However, we still need your [Original Doc type]. Please upload this document so we can continue to work on your loan.</textarea>
-                    </div>
-                    -->
                 </div>
             </div>
 

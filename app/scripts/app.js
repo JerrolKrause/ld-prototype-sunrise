@@ -54,6 +54,23 @@ angular
                         controller: 'MainCtrl'
                     })
 
+                    //Communication
+                    .state('communication', {
+                        url: '/communication/',
+                        templateUrl: 'views/routes/communication.html',
+                        metaTitle: 'Communication Queue',
+                        metaDescription: 'Communication Queue',
+                        controller: 'CommunicationCtrl'
+                    })
+                        .state('communication.examination', {
+                            url: 'examination/',
+                            templateUrl: 'views/routes/communication/examination.html',
+                            metaTitle: 'Communication Examination Window',
+                            metaDescription: 'Communication Examination Window',
+                            controller: 'CommunicationCtrl'
+                        })
+
+
                     //Accuracy
                     .state('accuracy', {
                         url: '/accuracy/',
@@ -85,6 +102,9 @@ angular
                             metaDescription: 'Qualify Examination Window',
                             controller: 'QualifyExamCtrl'
                         })
+
+
+
 
                     .state('coming-soon', {
                         url: '/coming-soon',
