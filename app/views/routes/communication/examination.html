@@ -53,8 +53,8 @@ main{padding-top:0px;}
   <a ui-sref="communication" class="pull-xs-right" ><strong><i class="fa fa-caret-left"></i> Go Back</strong> to Dashboard</a>
   <h1>Viewing Loan#: <strong ng-bind="loanCurrent.loanNum"></strong></h1>
   <hr/>
-  <button class="btn btn-blue btn-sm pull-xs-right" data-toggle="modal" data-target="#modalApproveAs"><i class="fa fa-envelope"></i> Send Email To Borrowers</button>
-<h2 class="title"><i class="fa fa-search-plus"></i> List Of All Documents</h2>
+  <button class="btn btn-blue btn-sm pull-xs-right" data-toggle="modal" data-target="#modalEmailBorrowers"><i class="fa fa-envelope"></i> Send Notification To Borrowers</button>
+<h2 class="title"><i class="fa fa-search-plus"></i> Loan Documents</h2>
 <div class="card">
   <table border="0" class="table table-sm table-bordered table-hover angular-table" id="requestTable" ts-wrapper>
                       <thead class="thead-default">
@@ -70,7 +70,7 @@ main{padding-top:0px;}
                           </tr>
                       </thead>
                       <tbody>
-                          <tr ng-repeat="doc in loanCurrent.docs" ts-repeat ng-if="doc.status == 'requested' ">
+                          <tr ng-repeat="doc in loanCurrent.docs" ts-repeat ng-if="doc.status != 'requested' ">
                               <td ng-bind="doc.label"></td>
                               <td>
                                   <span ng-bind="loanCurrent.borrowers[0]"></span>
@@ -98,7 +98,7 @@ main{padding-top:0px;}
               </div>
 
 <button class="btn btn-blue btn-sm pull-xs-right" data-toggle="modal" data-target="#modalApproveAs">Request New Docs</button>
-<h2 class="title"><i class="fa fa-search-plus"></i> Outstanding Documents</h2>
+<h2 class="title"><i class="fa fa-search-plus"></i> Documents Borrower Needs To Upload</h2>
     <div class="card">
       <table border="0" class="table table-sm table-bordered table-hover angular-table" id="requestTable" ts-wrapper>
                           <thead class="thead-default">
@@ -129,6 +129,5 @@ main{padding-top:0px;}
 
   </div>
 
+<div ng-include="'views/modals/modal_emailToBorrowers.html'"></div>
 <div ng-include="'views/modals/modal_reviewDocApproveAs.html'"></div>
-<div ng-include="'views/modals/modal_qualifyDocDecline.html'"></div>
-<div ng-include="'views/modals/modal_qualifyLoanDecline.html'"></div>
