@@ -10,6 +10,9 @@
 angular.module('sdpApp')
   .controller('CommunicationCtrl', function ($scope,appDataSvc, $state,$stateParams) {
 
+      $scope.step = 1;
+
+        $scope.borrowerEmail = {};
         $scope.docNames = appDataSvc.docNames;
         $scope.MessageData = appDataSvc.messages;
         var count = 0;
@@ -34,10 +37,38 @@ angular.module('sdpApp')
         });
 
 
+        $scope.removeDoc = function(doc){
+          doc.deleted = true;
+        }
+
+
+
+      $scope.SendMessage = function(){
+          var obj = {AddedBy:"Mark Hansen",AddedByType:"Borrower",AddedOn:"2016-12-03T15:55:15.603",Msg:$scope.Message.message};
+          $scope.MessageData.Message.push(obj);
+      }
+
+
+      $scope.reviewDocData = {};
+      $scope.requestDocs = function(){
+        console.log($scope.reviewDocData);
+
+        angular.forEach($scope.reviewDocData.isAcceptAs, function(value,key){
+                var obj = {
+                    label:value,
+                    notes:$scope.reviewDocData.notes,
+                    status:"requested"
+                  };
+                  $scope.loanCurrent.docs.unshift(obj);
+        });
+
+        //$scope.loanCurrent.docs.push()
+      }
+
+
       $(function () {
         $('[data-toggle="tooltip"]').tooltip()
       })
 
       console.log($scope.loanCurrent);
-
   });

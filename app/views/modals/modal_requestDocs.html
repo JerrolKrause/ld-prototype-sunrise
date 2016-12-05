@@ -1,0 +1,47 @@
+<div class="modal fade" id="modalApproveAs" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+
+            <!--Header-->
+            <div class="modal-header">
+                <h4 class="modal-title" id="myModalLabel"><i class="fa fa-thumbs-up"></i> Request Documents</h4>
+            </div>
+
+            <!--Body-->
+            <div class="modal-body">
+                <div class="modalBodyContent">
+                    <h5>What documents do you need?</h5>
+
+                    <p>
+                        <div class="selectBorrowersBox">
+                            <select id="selectApproveAs" class="form-control" ng-model="reviewDocData.isAcceptAs" multiple>
+                                <option ng-repeat="doc in docNames track by $index" ng-value="doc">{{doc}}</option>
+                            </select>
+                        </div>
+                    </p>
+                    <h5>Choose Borrowers</h5>
+                    <div class="form-check" ng-repeat="borrower in loanCurrent.borrowers">
+                     <label class="form-check-label">
+                       <input type="checkbox" class="form-check-input" checked>
+                       {{borrower}}
+                     </label>
+                   </div>
+                    <h5>Add a message for the processing unit.</h5>
+                    <textarea class="form-control ng-pristine ng-valid ng-empty ng-touched" id="notesToBorrower" rows="2" ng-model="reviewDocData.notes"></textarea>
+
+                </div>
+            </div>
+
+            <!--Footer-->
+            <div class="modal-footer">
+                    <div class="alert alert-danger icon text-xs-left" ng-show="ErrorModal">Something went wrong.</div>
+                    <a href="#" data-dismiss="modal" aria-label="Close" class="pull-xs-left">Cancel</a>
+                    <button type="button" class="btn btn-info" data-dismiss="modal" aria-label="Close"
+                            ng-click="requestDocs()"
+                            ng-disabled="!reviewDocData.isAcceptAs"
+                            ng-class="{'btn-sending' : WorkingModal}">Submit</button>
+            </div>
+
+        </div>
+    </div>
+</div>

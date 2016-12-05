@@ -25,7 +25,6 @@
      .table{margin:0;}
 }
 .title + .card{border-top: solid 3px #5e9aca;}
-
 //Modals
 .modal{
     .nav-tabs{
@@ -40,6 +39,15 @@
 //Tooltips
  .tooltip-inner{
   text-align:left;padding-left:10px;
+}
+
+.multi-step{
+  .step{
+    padding: 10px;font-size:13px;background:#f1f1f1 url('../images/step-current.png') no-repeat center right;
+    &.current{background-color:rgba(94, 154, 202, .1);}
+    &.last{ background-image:none;}
+  }
+
 }
 
 //Customize icons
@@ -70,6 +78,10 @@ ul{
 //All things tables
 .table{
     td{vertical-align:middle;}
+    tr.opacityLow{
+      opacity:0.4;
+      &:hover{opacity:1;}
+    }
     .highlight{background: #fff8ed;}
     //Angular sortable table. Requires plugin
     &.angular-table{

@@ -1,7 +1,7 @@
 <ui-view>
 <div class="container">
 <a ui-sref="dashboard" class="pull-xs-right goBack" ><strong><i class="fa fa-caret-left"></i> Go Back</strong> to Income Verification Dashboard</a>
-<h1 class="title"><i class="fa fa-check-circle" aria-hidden="true"></i> Communication Dashboard</h1>
+<h1 class="title"><i class="fa fa-comments-o" aria-hidden="true"></i> Communication Dashboard</h1>
 
 <div class="fadeIn">
   <div class="card">
@@ -120,7 +120,7 @@
                             <th scope="col" ts-criteria="docs">Document Name</th>
                             <th scope="col" ts-criteria="borrowers" style="width:27%;">Borrower Name (s)</th>
                             <th scope="col" ts-criteria="inQueue" ts-default="descending" style="width: 125px;">Last Contact</th>
-                            <th scope="col">Process To Do's</th>
+                            <th scope="col">Processer To Do's</th>
                         </tr>
                         <tr class="filter">
                             <th>
@@ -168,11 +168,11 @@
                             "><i class="fa fa-files-o" aria-hidden="true"></i></a>
                             {{ld.docs.length}} Documents
                           </td>
-                          <td class="text-xs-center">
+                          <td>
                             <div ng-bind="ld.borrowerSingle"></div>
                           </td>
                           <td class="text-xs-center" ng-class="{'red' : ld.inQueue > 4}">
-                              <span ng-bind="ld.inQueue"></span> minute/s
+                              <span ng-bind="ld.inQueue"></span> days/s
                           </td>
                           <td class="text-xs-center">{{ld.docs.length}}</td>
                         </tr>

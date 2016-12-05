@@ -15,10 +15,36 @@
                 <div class="modal-body">
                     <div class="modalBodyContent">
 
+                        <div class="row multi-step" style="margin-bottom:25px;">
+                          <div class="col-xs-6">
+                            <div class="step current" ng-click="step = 1">
+                              <small>Step 1</small><br/>
+                              Review Actions &amp; Enter Message To Borrowers
+                            </div>
+                          </div>
 
+                          <div class="col-xs-6">
+                            <div class="step last" ng-class="{'current' : step == 2}">
+                              <small>Step 2</small><br/>
+                              Review Email
+                            </div>
+                          </div>
+                        </div>
 
+                        <div ng-show="step == 1">
+                            <h5>You are requesting the following documents from the Borrower's</h5>
+                            <ul>
+                              <li ng-repeat="doc in loanCurrent.docs" ng-if="doc.status == 'requested' && !doc.hasAction"  ng-bind="doc.label"></li>
+                              <li ng-repeat="doc in loanCurrent.docs" ng-if="doc.hasAction"  ng-bind="doc.label"></li>
+                            </ul>
 
-                      <table class="body" data-made-with-foundation="" style="border-spacing: 0; border-collapse: collapse; vertical-align: top; text-align: left; height: 100%; width: 100%; color: #0a0a0a; font-family: Helvetica, Arial, sans-serif; font-weight: normal; line-height: 1.3; font-size: 14px; background: #ffffff; margin: 0; padding: 0;" bgcolor="#ffffff"><tr style="vertical-align: top; text-align: left; padding: 0;" align="left"><td class="float-center" align="center" valign="top" style="word-wrap: break-word; -webkit-hyphens: auto; -moz-hyphens: auto; hyphens: auto; border-collapse: collapse !important; vertical-align: top; text-align: center; float: none; color: #0a0a0a; font-family: Helvetica, Arial, sans-serif; font-weight: normal; line-height: 1.3; font-size: 14px; margin: 0 auto; padding: 0;">
+                            <h5>Please enter a message for the borrower(s)</h5>
+                            <textarea class="form-control ng-pristine ng-valid ng-empty ng-touched" id="notesToBorrower" rows="2" ng-model="borrowerEmail.notes"></textarea>
+                      </div>
+
+                      <table  ng-show="step == 2"
+
+                      class="body" data-made-with-foundation="" style="border-spacing: 0; border-collapse: collapse; vertical-align: top; text-align: left; height: 100%; width: 100%; color: #0a0a0a; font-family: Helvetica, Arial, sans-serif; font-weight: normal; line-height: 1.3; font-size: 14px; background: #ffffff; margin: 0; padding: 0;" bgcolor="#ffffff"><tr style="vertical-align: top; text-align: left; padding: 0;" align="left"><td class="float-center" align="center" valign="top" style="word-wrap: break-word; -webkit-hyphens: auto; -moz-hyphens: auto; hyphens: auto; border-collapse: collapse !important; vertical-align: top; text-align: center; float: none; color: #0a0a0a; font-family: Helvetica, Arial, sans-serif; font-weight: normal; line-height: 1.3; font-size: 14px; margin: 0 auto; padding: 0;">
                             <center style="width: 100%; min-width: 580px;">
 
                               <!-- header -->
@@ -59,7 +85,7 @@
                                                                                                                                     <tr>
                                                                                                                                                     <td><b>Docs Received</b></td></tr><tr><td>
                                                                                                                                                     <ul>
-                                                                                                                                                      <li ng-repeat="doc in loanCurrent.docs" ng-if="doc.status != 'requested' " ng-bind="doc.label"></li>
+                                                                                                                                                      <li ng-repeat="doc in loanCurrent.docs" ng-if="doc.status != 'requested'" ng-bind="doc.label"></li>
 
                                                                                                                                                     </ul>
                                                                                                                                                     </td>
@@ -67,14 +93,15 @@
                                                                                                                                     <tr>
                                                                                                                                                     <td><b>Required docs need to be uploaded</b></td></tr>
                                                                                                                                     <tr><td><ul>
-                                                                                                                                      <li ng-repeat="doc in loanCurrent.docs" ng-if="doc.status == 'requested' "  ng-bind="doc.label"></li>
+                                                                                                                                      <li ng-repeat="doc in loanCurrent.docs" ng-if="doc.status == 'requested' && !doc.hasAction"  ng-bind="doc.label"></li>
+                                                                                                                                      <li ng-repeat="doc in loanCurrent.docs" ng-if="doc.hasAction"  ng-bind="doc.label"></li>
                                                                                                                                                                   </ul></td>
                                                                                                                                     </tr>
                                                                                                                                     <tr>
                                                                                                                                                     <td><b>Special message from your processor</b></td></tr>
                                                                                                                                                     <tr><td>
-                                                                                                                                                                    Mrs. Doe, <br>Thank you for choosing loanDepot and taking your time to talk to me.  I understand your frustration working with other companies when trying to get your loan approved.  I personally look forward to working with you and completing your loan process in a timely matter.   To continue with processing your loan, please send over the outstanding documents that we are still waiting for.
-                                                                                                                                                    </td>
+                                                                                                                                                      {{borrowerEmail.notes}}
+                                                                                                                                                      </td>
                                                                                                                                     </tr>
                                                                                                                                     </table>
 
@@ -105,7 +132,7 @@
                                                       <table class="spacer sixteen" style="border-spacing: 0; border-collapse: collapse; vertical-align: top; text-align: left; width: 100%; padding: 0;"><tr style="vertical-align: top; text-align: left; padding: 0;" align="left"><td height="16px" style="word-wrap: break-word; -webkit-hyphens: auto; -moz-hyphens: auto; hyphens: auto; border-collapse: collapse !important; vertical-align: top; text-align: left; mso-line-height-rule: exactly; color: #0a0a0a; font-family: Helvetica, Arial, sans-serif; font-weight: normal; line-height: 16px; font-size: 16px; margin: 0; padding: 0;" align="left" valign="top"> </td>
                                                         </tr></table>
 
-                                                      John Lender
+                                                      Mark Hansen
 
                                                     </td>
                                                   </tr></table></td>
@@ -121,12 +148,14 @@
 
                 <!--Footer-->
                 <div class="modal-footer">
-                    <div class="alert alert-danger icon text-xs-left" ng-show="vm.ErrorModal">Something went wrong.</div>
                     <a href="#" data-dismiss="modal" aria-label="Close" class="pull-xs-left">Cancel</a>
-                    <button type="button" class="btn btn-info" data-dismiss="modal" aria-label="Close"
-                            ng-click="updateDocStatus()"
-                            ng-disabled="vm.WorkingModal || frmDecline.$invalid"
-                            ng-class="{'btn-sending' : vm.WorkingModal}">
+                    <button type="button" class="btn btn-info" ng-show="step == 1"
+                            ng-click="step = 2"
+                            ng-disabled=""
+                        <i class="fa fa-envelope"></i> Next Step
+                    </button>
+                    <button type="button" class="btn btn-info" data-dismiss="modal" aria-label="Close" ng-show="step == 2"
+                            ng-click="step = 1"
                         <i class="fa fa-envelope"></i> Send
                     </button>
                 </div>
