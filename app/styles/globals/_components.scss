@@ -139,6 +139,7 @@ ul{
 
 
 .review-docs{ padding: 10px;padding-bottom:20px;color: #fff;background: rgba(0,0,0,0.85);}
+
 //Dashboard
 .total-docs{
     color: #a90329;
@@ -149,3 +150,26 @@ ul{
 }
 .pull-xs-left {
 margin-right: 5px;}
+
+
+.card-block{
+    
+    padding-bottom: 2.25REM;
+}
+
+.alert-stat{
+    color: #a90329;
+    font-weight: bold;
+}
+
+.card .table {
+    margin-bottom: 20px;}
+
+label.filter {
+    display: none;
+}
+.btn.btn-work{
+   background: linear-gradient(#a90329 0%, #8f0222 44%, #6d0019 100%);
+    border: solid 1px #6F0119; 
+}
+
