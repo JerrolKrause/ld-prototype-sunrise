@@ -1,14 +1,214 @@
-<div class="container-fluid">
+<style>
+body{padding-bottom:60px;}
+main{padding-top:0px;}
+</style>
 
-<a ui-sref="accuracy" class="pull-xs-right goBack" ><strong><i class="fa fa-caret-left"></i> Go Back</strong> to Accuracy Dashboard</a>
-<h1 class="title"><i class="fa fa-search-plus"></i> Review Documents</h1>
-<div class="card">
-    <div class="card-block">
-
-        </div>
+<div class="container-fluid header-info">
+    <div class="d-inline-block">
+        <p>
+            <strong ng-bind="'Loan# ' + loanCurrent.loanNum"></strong><br />
+            <i class="fa fa-user"></i> <span ng-bind="loanCurrent.borrowerSingle"></span>
+        </p>
     </div>
-  </div>
+    <div class="d-inline-block  hidden-sm-down" 1ng-if="vm.loanInfoData.loanAmount">
+        <p>
+            <strong 1ng-bind="vm.loanInfoData.loanAmount | currency:'$':0">$250,000</strong><br />
+            <span>Loan Amount</span>
+        </p>
+    </div>
+    <div class="d-inline-block hidden-sm-down" 1ng-if="vm.loanInfoData.interestRate">
+        <p>
+            <strong 1ng-bind="vm.loanInfoData.interestRate + '%'">3.25%</strong><br />
+            <span>Interest Rate</span>
+        </p>
+    </div>
+    <div class="d-inline-block hidden-sm-down" 1ng-if="vm.loanInfoData.rateLockExpirationDate">
+        <p>
+            <strong 1ng-bind="vm.loanInfoData.rateLockExpirationDate | date:'medium'">Jan 1, 1 12:00:00 AM</strong><br />
+            <span>Rate Lock Expiration</span>
+        </p>
+    </div>
+    <div class="d-inline-block hidden-sm-down" 1ng-if="vm.loanInfoData.program">
+        <p>
+            <strong 1ng-bind="vm.loanInfoData.program">FHA Fixed 30 Year</strong><br />
+            <span>Program</span>
+        </p>
+    </div>
+    <div class="d-inline-block hidden-sm-down" 1ng-if="vm.loanInfoData.loanType">
+        <p>
+            <strong 1ng-bind="vm.loanInfoData.loanType">Government</strong><br />
+            <span>Type</span>
+        </p>
+    </div>
+    <div class="d-inline-block" 1ng-if="vm.loanInfoData.loanStatus">
+        <p>
+            <strong 1ng-bind="vm.loanInfoData.loanStatus">Application Taken</strong><br />
+            <span>Loan Status</span>
+        </p>
+    </div>
 </div>
 
-<div ng-include="'views/modals/modal_reviewDocApproveAs.html'"></div>
-<div ng-include="'views/modals/modal_reviewDocDecline.html'"></div>
+
+<div class="container-fluid"><br/>
+  <a ui-sref="communication" class="pull-xs-right" ><strong><i class="fa fa-caret-left"></i> Go Back</strong> to Dashboard</a>
+  <h1>Viewing Loan#: <strong ng-bind="loanCurrent.loanNum"></strong></h1>
+  <hr/>
+  <button class="btn btn-blue btn-sm pull-xs-right" data-toggle="modal" data-target="#modalEmailBorrowers" ng-click="step = 1"><i class="fa fa-envelope"></i> Send Notification To Borrowers</button>
+<h2 class="title"><i class="fa fa-search-plus"></i> Loan Documents</h2>
+<div class="card">
+  <table border="0" class="table table-sm table-bordered table-hover angular-table" id="requestTable" ts-wrapper>
+                      <thead class="thead-default">
+                          <tr>
+                              <th scope="col" style="width:20%;" ts-criteria="DocumentName">Document Name</th>
+                              <th scope="col" style="width:15%;" ts-criteria="BorrowerGuid">Borrower</th>
+                              <th scope="col" style="width:15%;" ts-criteria="RequestedBy">Requested By</th>
+                              <th scope="col" style="width:30%;" ts-criteria="DocumentNotes">Notes</th>
+
+                              <th class="text-xs-center" style="width:50px;">AQ</th>
+                              <th class="text-xs-center" style="width:50px;">QQ</th>
+                              <th scope="col" ts-criteria="hasAction" ts-default="descending">Actions</th>
+                          </tr>
+                      </thead>
+                      <tbody>
+                          <tr ng-repeat="doc in loanCurrent.docs" ts-repeat ng-if="doc.status != 'requested' " ng-class="{'opacityLow' : !doc.hasAction}">
+                              <td ng-bind="doc.label"></td>
+                              <td>
+                                  <span ng-bind="loanCurrent.borrowers[0]"></span>
+                              </td>
+                              <td>Mark Hansen</td>
+                              <td ng-bind="doc.notes"></td>
+                              <td class="text-xs-center">
+                                <i class="fa fa-thumbs-up green" ng-if="doc.queueStatus == 'approved' "></i>
+                                <i class="fa fa-thumbs-down red" ng-if="doc.queueStatus == 'declined' "></i>
+                                <i class="fa fa-eye-slash gray" aria-hidden="true" ng-if="doc.queueStatus == 'not-reviewed' "></i>
+                              </td>
+                              <td class="text-xs-center">
+                                <i class="fa fa-thumbs-up green" ng-if="doc.queueStatus2 == 'approved' "></i>
+                                <i class="fa fa-thumbs-down red" ng-if="doc.queueStatus2 == 'declined' "></i>
+                                <i class="fa fa-eye-slash gray" ng-if="doc.queueStatus2 == 'not-reviewed' "></i>
+                              </td>
+                              <td>
+                                <label class="form-check-label" ng-if="doc.hasAction">
+                                  <input type="checkbox" class="form-check-input" checked> Re-Request Doc
+                                </label>
+                              </td>
+                          </tr>
+                      </tbody>
+                  </table>
+              </div>
+
+<button class="btn btn-blue btn-sm pull-xs-right" data-toggle="modal" data-target="#modalApproveAs"><i class="fa fa-file" aria-hidden="true"></i> Request New Docs</button>
+<h2 class="title"><i class="fa fa-search-plus"></i> Documents Borrower Needs To Upload</h2>
+    <div class="card">
+  
+      <table border="0" class="table table-sm table-bordered table-hover angular-table" id="requestTable" ts-wrapper>
+                          <thead class="thead-default">
+                              <tr>
+                                  <th scope="col" style="width:20%;" ts-criteria="DocumentName">Document Name</th>
+                                  <th scope="col" style="width:15%;" ts-criteria="BorrowerGuid">Borrower</th>
+                                  <th scope="col" style="width:15%;" ts-criteria="RequestedBy">Requested By</th>
+                                  <th scope="col" style="width:30%;" ts-criteria="DocumentNotes">Notes</th>
+                                  <th scope="col">Remove</th>
+                              </tr>
+                          </thead>
+                          <tbody>
+                              <tr ng-repeat="doc in loanCurrent.docs" ts-repeat ng-if="doc.status == 'requested' && doc.deleted != true">
+                                  <td ng-bind="doc.label"></td>
+                                  <td>
+                                      <span ng-bind="loanCurrent.borrowers[0]"></span>
+                                  </td>
+                                  <td>Mark Hansen</td>
+                                  <td ng-bind="doc.notes"></td>
+                                  <td class="text-xs-center">
+                                      <a href="" ng-click="removeDoc(doc)"><i class="fa fa-remove red"></i></a>
+                                  </td>
+                              </tr>
+                          </tbody>
+                      </table>
+    </div>
+
+
+
+
+    <h2 class="title"><i class="fa fa-comments"></i> Messages </h2>
+    <div class="card">
+      <div class="card-block">
+
+            <form name="frmMessages" class="anim-fade ng-pristine ng-invalid ng-invalid-required in" ng-class="{'in' : vm.Borrowers &amp;&amp; !vm.Error}">
+                <div class="alert alert-success icon anim-fade" ng-class="{'in' : vm.Success}">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                    Message sent successfully
+                </div>
+                <div class="alert alert-danger icon ng-hide" ng-show="vm.ErrorPost">Error sending message</div>
+
+                <h3>Notify these borrowers <a href="" data-toggle="tooltip" data-placement="right" title="" data-original-title="You can use instant messaging to respond to your borrower(s). After sending a response, the selected borrower(s) will be notified by email. Once the borrower receives the email, they can link to the Secure Document Portal to respond. All sent messages to the borrower will be stored and will update the last contact date (SLA) in Empower."><i class="fa fa-info-circle"></i></a></h3>
+
+                <div class="form-group form-inline pull-md-left">
+                                  <i class="fa fa-user spacer"></i>
+                                  <label class="form-check-label ng-scope" ng-repeat="Borrower in loanCurrent.borrowers">
+                                      <input type="checkbox" class="form-check-input ng-pristine ng-untouched ng-valid ng-not-empty" name="borrower" ng-value="Borrower.borrowerGuid" checked value="d014964a-5be4-415d-9c5c-f401e02a966e">
+                                      <span ng-bind="Borrower" class="ng-binding"></span>
+                                  </label>
+                              </div>
+
+                              <div class="contacts-cc ng-scope" ng-show="vm.LoanContacts">
+                  <fieldset title="A notification email will be sent to the following recipients.">
+                      <i class="fa fa-envelope" aria-hidden="true"></i> CC:
+                  </fieldset>
+                  <fieldset class="form-group ng-scope" ng-repeat="loanContact in vm.LoanContacts">
+                      <input type="checkbox" class="filled-in ng-pristine ng-untouched ng-valid ng-not-empty" id="cc-0" checked="" ng-model="vm.LoanContacts[$index].checked" ng-click="vm.UpdateContacts()">
+                      <label for="cc-0" ng-bind="loanContact.Name" class="ng-binding">Brett Allen</label>
+                  </fieldset>
+                  <fieldset class="form-group">
+                      <input type="checkbox" class="filled-in" id="m4Notes" checked="" disabled="">
+                      <label for="m4Notes">M4Notes</label>
+                  </fieldset>
+              </div>
+
+                <div class="form-group">
+                    <textarea class="form-control ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required" name="messageTextArea" id="messageTextArea" rows="4" placeholder="Enter your message here" ng-model="Message.message" required=""></textarea>
+                </div>
+
+                <button class="btn btn-info btn-sm pull-xs-right" ng-click="SendMessage()" ng-disabled="vm.Sending || (frmMessages.messageTextArea.$pristine || frmMessages.messageTextArea.$invalid)" ng-class="{'btn-sending': vm.Sending}" disabled="disabled"><i class="fa fa-paper-plane" aria-hidden="true"></i> Send Message to Borrower(s)</button>
+            </form>
+          </div>
+
+        </div>
+
+
+    <h2 class="title"><i class="fa fa-comments"></i> Message History </h2>
+    <div class="card">
+      <table border="0" class="table table-sm table-bordered table-striped table-hover angular-table table-messages" ts-wrapper>
+                    <thead class="thead-default">
+                        <tr>
+                            <th scope="col" ts-criteria="AddedByType" class="hidden-sm-down">Source</th>
+                            <th scope="col" ts-criteria="AddedBy">Name</th>
+                            <th scope="col" ts-criteria="AddedOn|parseDate" ts-default="descending" class="hidden-sm-down">Date Sent</th>
+                            <th scope="col" ts-criteria="Msg">Message</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="msg in MessageData.Message | filter: MessageSearch" ts-repeat>
+                            <td class="text-xs-center hidden-sm-down">
+                                <img src="images/ld-logo.png" ng-if="msg.AddedByType == 'LD Employee'" style="max-width:15px;"/>
+                                <i class="fa fa-user spacer" ng-if="msg.AddedByType == 'Borrower'"></i>
+                            </td>
+                            <td ng-bind="msg.AddedBy || 'Mark Hansen'"></td>
+                            <td class="hidden-sm-down"><small ng-bind="msg.AddedOn | date:'medium'"></small></td>
+                            <td ng-bind="msg.Msg"></td>
+                        </tr>
+                    </tbody>
+                </table>
+    </div>
+
+
+
+
+
+      </div>
+  </div>
+
+<div ng-include="'views/modals/modal_emailToBorrowers.html'"></div>
+<div ng-include="'views/modals/modal_requestDocs.html'"></div>

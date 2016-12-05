@@ -60,10 +60,10 @@ angular
                         templateUrl: 'views/routes/communication.html',
                         metaTitle: 'Communication Queue',
                         metaDescription: 'Communication Queue',
-                        controller: 'CommunicationCtrl'
+                        controller: 'AccuracyCtrl'
                     })
                         .state('communication.examination', {
-                            url: 'examination/',
+                            url: 'examination/{LoanID}',
                             templateUrl: 'views/routes/communication/examination.html',
                             metaTitle: 'Communication Examination Window',
                             metaDescription: 'Communication Examination Window',

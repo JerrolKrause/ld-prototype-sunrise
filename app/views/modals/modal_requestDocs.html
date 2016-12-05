@@ -14,7 +14,7 @@
 
                     <p>
                         <div class="selectBorrowersBox">
-                            <select id="selectApproveAs" class="form-control" ng-model="vm.reviewDocData.isAcceptAs" multiple>
+                            <select id="selectApproveAs" class="form-control" ng-model="reviewDocData.isAcceptAs" multiple>
                                 <option ng-repeat="doc in docNames track by $index" ng-value="doc">{{doc}}</option>
                             </select>
                         </div>
@@ -27,19 +27,19 @@
                      </label>
                    </div>
                     <h5>Add a message for the processing unit.</h5>
-                    <textarea class="form-control ng-pristine ng-valid ng-empty ng-touched" id="notesToBorrower" rows="2" ng-model="vm.reviewDocData.notes"></textarea>
+                    <textarea class="form-control ng-pristine ng-valid ng-empty ng-touched" id="notesToBorrower" rows="2" ng-model="reviewDocData.notes"></textarea>
 
                 </div>
             </div>
 
             <!--Footer-->
             <div class="modal-footer">
-                    <div class="alert alert-danger icon text-xs-left" ng-show="vm.ErrorModal">Something went wrong.</div>
+                    <div class="alert alert-danger icon text-xs-left" ng-show="ErrorModal">Something went wrong.</div>
                     <a href="#" data-dismiss="modal" aria-label="Close" class="pull-xs-left">Cancel</a>
                     <button type="button" class="btn btn-info" data-dismiss="modal" aria-label="Close"
-                            ng-click="updateDocStatus()"
-                            ng-disabled="!vm.reviewDocData.isAcceptAs"
-                            ng-class="{'btn-sending' : vm.WorkingModal}">Submit</button>
+                            ng-click="requestDocs()"
+                            ng-disabled="!reviewDocData.isAcceptAs"
+                            ng-class="{'btn-sending' : WorkingModal}">Submit</button>
             </div>
 
         </div>

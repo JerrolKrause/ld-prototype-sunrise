@@ -25,7 +25,7 @@
      .table{margin:0;}
 }
 .title + .card{border-top: solid 3px #5e9aca;}
-
+//Modals
 .modal{
     .nav-tabs{
         border-color:rgba(0,0,0,.2);padding-left: 10px;
@@ -34,6 +34,20 @@
         & + .modal-content{ border-top:0; border-radius: 0px 0px 3px 3px;}
     }
     .modal-content > h2{padding: 1rem;margin: 0;}
+}
+
+//Tooltips
+ .tooltip-inner{
+  text-align:left;padding-left:10px;
+}
+
+.multi-step{
+  .step{
+    padding: 10px;font-size:13px;background:#f1f1f1 url('../images/step-current.png') no-repeat center right;
+    &.current{background-color:rgba(94, 154, 202, .1);}
+    &.last{ background-image:none;}
+  }
+
 }
 
 //Customize icons
@@ -47,6 +61,7 @@
     &.red{color:#8f0222;}
     &.yellow{color:#edd000;}
     &.blue{color:$pos-blue;}
+    &.gray{color:#7b8287;}
 }
 
 //Custom lists
@@ -63,6 +78,10 @@ ul{
 //All things tables
 .table{
     td{vertical-align:middle;}
+    tr.opacityLow{
+      opacity:0.4;
+      &:hover{opacity:1;}
+    }
     .highlight{background: #fff8ed;}
     //Angular sortable table. Requires plugin
     &.angular-table{
@@ -84,6 +103,7 @@ ul{
 
     &.table-stats{
       font-size:0.85rem;
+      .thead-default th{color:#666b6f;font-size: 12px;}
     }
     .filter .form-control{font-weight:normal;font-size:.75rem;}
     //Messages table{
@@ -100,9 +120,12 @@ ul{
 
 //Accordians. Dropdown icons are inserted with before
 .accordion {
-
+    .panel-title{
+      padding-left: 10px;
+      .fa{margin-right:7px;}
+    }
     [data-toggle="collapse"]{
-        cursor:pointer;display:block;
+        cursor:pointer;display:block;color:black;
         &:before{font-family: FontAwesome;content: "\f078";position:absolute;right:15px;@include transition();transform: rotate(0deg);}
         &.collapsed:before{@include transition();transform: rotate(180deg);color:black;}
     }

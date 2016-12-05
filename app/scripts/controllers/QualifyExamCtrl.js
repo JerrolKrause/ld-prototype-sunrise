@@ -30,6 +30,14 @@ angular.module('sdpApp')
     $scope.pane2index = 0;
 
 
+    angular.forEach($scope.loanCurrent.docs, function(value,key){
+      console.log(JSON.stringify(value));
+
+
+    });
+
+
+
     /**
     * Load a document into pane 1 or pane 2. Used for doc index interaction on right sidebar
     */
@@ -39,7 +47,7 @@ angular.module('sdpApp')
         console.log('I exist already')
         $scope['docCurrent'+paneNum] = null;
         $scope.loanCurrent.docs[index]['pane'+paneNum] = false;
-} else {
+      } else {
       //Set the current active doc of the selected pane to this one
        $scope['docCurrent'+paneNum] = $scope.loanCurrent.docs[index];
 
@@ -48,8 +56,7 @@ angular.module('sdpApp')
        });
        //Set current doc to this pane true
        $scope.loanCurrent.docs[index]['pane'+paneNum] = true;
-}
-
+     }
 
 
 
@@ -96,7 +103,6 @@ angular.module('sdpApp')
         $state.go('qualify.examination',{ LoanID: LoanID });
       });
     }//end nextLoan
-
 
 
     function sortDocs(){
