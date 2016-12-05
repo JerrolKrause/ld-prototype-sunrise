@@ -17,5 +17,7 @@ angular.module('sdpApp')
 
       $scope.stats = appDataSvc.stats;
 
-      console.log($scope.stats)
+      $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+      })
   });

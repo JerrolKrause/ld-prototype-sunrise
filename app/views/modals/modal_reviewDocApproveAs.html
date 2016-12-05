@@ -19,9 +19,15 @@
                             </select>
                         </div>
                     </p>
-
-                        <h5>Add a message for the processing unit.</h5>
-                        <textarea class="form-control ng-pristine ng-valid ng-empty ng-touched" id="notesToBorrower" rows="2" ng-model="vm.reviewDocData.notes"></textarea>
+                    <h5>Choose Borrowers</h5>
+                    <div class="form-check" ng-repeat="borrower in loanCurrent.borrowers">
+                     <label class="form-check-label">
+                       <input type="checkbox" class="form-check-input" checked>
+                       {{borrower}}
+                     </label>
+                   </div>
+                    <h5>Add a message for the processing unit.</h5>
+                    <textarea class="form-control ng-pristine ng-valid ng-empty ng-touched" id="notesToBorrower" rows="2" ng-model="vm.reviewDocData.notes"></textarea>
 
                 </div>
             </div>

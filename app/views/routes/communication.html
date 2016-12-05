@@ -1,7 +1,7 @@
 <ui-view>
 <div class="container">
 <a ui-sref="dashboard" class="pull-xs-right goBack" ><strong><i class="fa fa-caret-left"></i> Go Back</strong> to Income Verification Dashboard</a>
-<h1 class="title"><i class="fa fa-check-circle" aria-hidden="true"></i> Comminucation Dashboard</h1>
+<h1 class="title"><i class="fa fa-check-circle" aria-hidden="true"></i> Communication Dashboard</h1>
 
 <div class="fadeIn">
   <div class="card">
@@ -84,7 +84,7 @@
                   <td class="text-xs-right"><strong style="color:#75b534;">1:25</strong></td>
                 </tr>
               </table>
-
+              <hr/>
               <h3 class="text-xs-left"><i class="fa fa-hourglass" aria-hidden="true"></i> Status</h3>
               <hr/>
               <i class="fa fa-thumbs-up pull-xs-left"></i>
@@ -119,7 +119,8 @@
                             <th>Loan Status</th>
                             <th scope="col" ts-criteria="docs">Document Name</th>
                             <th scope="col" ts-criteria="borrowers" style="width:27%;">Borrower Name (s)</th>
-                            <th scope="col" ts-criteria="inQueue" ts-default="descending" style="width: 125px;">Time in Queue</th>
+                            <th scope="col" ts-criteria="inQueue" ts-default="descending" style="width: 125px;">Last Contact</th>
+                            <th scope="col">Process To Do's</th>
                         </tr>
                         <tr class="filter">
                             <th>
@@ -142,6 +143,7 @@
                               </label>
                             </th>
                             <th></th>
+                            <th></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -151,16 +153,28 @@
                           </td>
                           <td ng-bind="ld.loanStatus"></td>
                           <td>
-                            <div ng-repeat="doc in ld.docs track by $index">
-                              <a href="#" ng-bind="doc.label"></a>
-                            </div>
+                            <a href="" class="pull-xs-right" data-toggle="tooltip" data-placement="right" data-html="true" attrs="item" title="
+                            Partnership tax returns (1065s)<br/>
+                            Alimony<br/>
+                            1099R<br/>
+                            Foster care<br/>
+                            W2<br/>
+                            Rental income<br/>
+                            IRA statement<br/>
+                            W2<br/>
+                            VA benefit statement<br/>
+                            Partnership tax returns (1065s)<br/>
+                            Award letter
+                            "><i class="fa fa-files-o" aria-hidden="true"></i></a>
+                            {{ld.docs.length}} Documents
                           </td>
-                          <td>
+                          <td class="text-xs-center">
                             <div ng-bind="ld.borrowerSingle"></div>
                           </td>
-                          <td ng-class="{'red' : ld.inQueue > 4}">
+                          <td class="text-xs-center" ng-class="{'red' : ld.inQueue > 4}">
                               <span ng-bind="ld.inQueue"></span> minute/s
                           </td>
+                          <td class="text-xs-center">{{ld.docs.length}}</td>
                         </tr>
                     </tbody>
                 </table>

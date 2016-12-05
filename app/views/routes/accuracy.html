@@ -151,9 +151,20 @@
                           </td>
                           <td ng-bind="ld.loanStatus"></td>
                           <td>
-                            <div ng-repeat="doc in ld.docs track by $index">
-                              <a href="#" ng-bind="doc.label"></a>
-                            </div>
+                            <a href="" class="pull-xs-right" data-toggle="tooltip" data-placement="right" data-html="true" attrs="item" title="
+                            Partnership tax returns (1065s)<br/>
+                            Alimony<br/>
+                            1099R<br/>
+                            Foster care<br/>
+                            W2<br/>
+                            Rental income<br/>
+                            IRA statement<br/>
+                            W2<br/>
+                            VA benefit statement<br/>
+                            Partnership tax returns (1065s)<br/>
+                            Award letter
+                            "><i class="fa fa-files-o" aria-hidden="true"></i></a>
+                            {{ld.docs.length}} Documents
                           </td>
                           <td>
                             <div ng-bind="ld.borrowerSingle"></div>

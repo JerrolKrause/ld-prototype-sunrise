@@ -26,6 +26,7 @@
 }
 .title + .card{border-top: solid 3px #5e9aca;}
 
+//Modals
 .modal{
     .nav-tabs{
         border-color:rgba(0,0,0,.2);padding-left: 10px;
@@ -34,6 +35,11 @@
         & + .modal-content{ border-top:0; border-radius: 0px 0px 3px 3px;}
     }
     .modal-content > h2{padding: 1rem;margin: 0;}
+}
+
+//Tooltips
+ .tooltip-inner{
+  text-align:left;padding-left:10px;
 }
 
 //Customize icons
@@ -85,6 +91,7 @@ ul{
 
     &.table-stats{
       font-size:0.85rem;
+      .thead-default th{color:#666b6f;font-size: 12px;}
     }
     .filter .form-control{font-weight:normal;font-size:.75rem;}
     //Messages table{
@@ -101,9 +108,12 @@ ul{
 
 //Accordians. Dropdown icons are inserted with before
 .accordion {
-
+    .panel-title{
+      padding-left: 10px;
+      .fa{margin-right:7px;}
+    }
     [data-toggle="collapse"]{
-        cursor:pointer;display:block;
+        cursor:pointer;display:block;color:black;
         &:before{font-family: FontAwesome;content: "\f078";position:absolute;right:15px;@include transition();transform: rotate(0deg);}
         &.collapsed:before{@include transition();transform: rotate(180deg);color:black;}
     }
