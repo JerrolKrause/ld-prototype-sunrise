@@ -1,0 +1,87 @@
+<div class="modal fade" id="modalSearchLoans" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+
+            <!--Header-->
+            <div class="modal-header">
+                <h4 class="modal-title" id="myModalLabel"><i class="fa fa-search" aria-hidden="true"></i> Search Loans</h4>
+            </div>
+
+            <!--Body-->
+            <div class="modal-body">
+                <div class="modalBodyContent">
+
+
+                <div class="row">
+                    <div class="col-xs-12 col-md-4">
+                        <div class="form-group">
+                            <input type="text" id="loanNumber" class="form-control" placeholder="Loan Number" ng-model="vm.searchData.LoanNumber">
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-md-4">
+                        <div class="form-group">
+                            <input type="text" id="firstName" class="form-control" placeholder="Email Address" ng-model="vm.searchData.BorrowerEmailAddress">
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-md-4">
+                        <div class="form-group">
+                            <input type="text" id="lastName" class="form-control" placeholder="SSN" ng-model="vm.searchData.BorrowerSsn">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+
+                    <div class="col-xs-12 col-md-6">
+                        <div class="form-group">
+                            <input type="text" id="firstName" class="form-control" placeholder="First Name" ng-model="vm.searchData.BorrowerFirstName">
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-md-6">
+                        <div class="form-group">
+                            <input type="text" id="lastName" class="form-control" placeholder="Last Name" ng-model="vm.searchData.BorrowerLastName">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="form-group">
+                            <input type="text" id="propertyAddress" class="form-control" placeholder="Property Address" ng-model="vm.searchData.PropertyAddress">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-12 col-md-6">
+                        <div class="form-group">
+                            <input type="text" id="propertyCity" class="form-control" placeholder="City" ng-model="vm.searchData.PropertyCity">
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-md-2">
+                        <div class="form-group">
+                            <input type="text" id="propertyState" class="form-control" placeholder="State" ng-model="vm.searchData.PropertyState">
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-md-4">
+                        <div class="form-group">
+                            <input type="number" id="propertyZip" class="form-control" placeholder="Zip" ng-model="vm.searchData.PropertyZipCode">
+                        </div>
+                    </div>
+                </div>
+
+                </div>
+            </div>
+
+            <!--Footer-->
+            <div class="modal-footer">
+                    <div class="alert alert-danger icon text-xs-left" ng-show="ErrorModal">Something went wrong.</div>
+                    <a href="#" data-dismiss="modal" aria-label="Close" class="pull-xs-left">Cancel</a>
+                    <button type="button" class="btn btn-info" data-dismiss="modal" aria-label="Close"
+                            ng-click="searchDocs()"
+                            ng-class="{'btn-sending' : WorkingModal}"><i class="fa fa-search" aria-hidden="true"></i> Search</button>
+            </div>
+
+        </div>
+    </div>
+</div>

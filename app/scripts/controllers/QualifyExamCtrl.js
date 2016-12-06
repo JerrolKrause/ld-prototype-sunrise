@@ -30,21 +30,13 @@ angular.module('sdpApp')
     $scope.pane2index = 0;
 
 
-    angular.forEach($scope.loanCurrent.docs, function(value,key){
-      console.log(JSON.stringify(value));
-
-
-    });
-
-
-
     /**
     * Load a document into pane 1 or pane 2. Used for doc index interaction on right sidebar
     */
     $scope.loadDocumentPane = function(paneNum, index){
 
       if($scope.loanCurrent.docs[index]['pane'+paneNum]){
-        console.log('I exist already')
+
         $scope['docCurrent'+paneNum] = null;
         $scope.loanCurrent.docs[index]['pane'+paneNum] = false;
       } else {
@@ -125,6 +117,26 @@ angular.module('sdpApp')
       //Sort docs in this loan
       var sortedDocs = $scope.docsReviewing.sort(function(a,b){
            return a.status <b.status?1:a.status >b.status?-1:0
+      });
+    }
+
+
+    $scope.reviewDocData = {};
+    $scope.requestDocs = function(){
+    
+      angular.forEach($scope.reviewDocData.isAcceptAs, function(value,key){
+
+              var obj = {
+                  label:value,
+                  notes:$scope.reviewDocData.notes,
+                  status:"requested"
+                };
+
+                $scope.loanCurrent.docs.unshift(obj);
+                if($scope.docsBorrower){
+                  $scope.docsBorrower.unshift(obj);
+                }
+
       });
     }
 

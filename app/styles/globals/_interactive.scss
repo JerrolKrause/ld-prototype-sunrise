@@ -76,11 +76,10 @@ a{
 }
 
 .chart{
-  display:table;table-layout:fixed;width:100%;max-width:700px;height:75px;margin:0 auto;margin-bottom: 25px;padding:0;background:linear-gradient(bottom,rgba(0,0,0,.1) 2%,transparent 2%);background-size:100% 50px;background-position:left top;li{position:relative;display:table-cell;vertical-align:bottom;height:75px}
-  span{border-radius: 5px 5px 0px 0px;margin:0 1em;display:block;  background: linear-gradient(to right, #a5cd3a, #75b534);animation:draw 1s ease-in-out;animation-fill-mode:forwards; width:30px;&:before{position:absolute;left:0;right:0;top:100%;padding:0;padding-top:5px;margin:0 1em;display:block;text-align:center;content:attr(title);word-wrap:break-word;width:30px}}
+  display:table;table-layout:fixed;width:100%;max-width:700px;height: 92px;margin:0 auto;margin-bottom: 25px;padding:0;background:linear-gradient(bottom,rgba(0,0,0,.1) 2%,transparent 2%);background-size:100% 50px;background-position:left top;li{position:relative;display:table-cell;vertical-align:bottom;height:75px}
+  span{font-size: 12px;border-radius: 5px 5px 0px 0px;margin:0 1em;display:block;  background: linear-gradient(to right, #a5cd3a, #75b534);animation:draw 1s ease-in-out;animation-fill-mode:forwards; width:30px;&:before{position:absolute;left:0;right:0;top:100%;padding:0;padding-top:5px;margin:0 1em;display:block;text-align:center;content:attr(title);word-wrap:break-word;width:30px}}
 }
 @keyframes draw{ from { height: 0px; }}
-
 
 
 //Rotate images

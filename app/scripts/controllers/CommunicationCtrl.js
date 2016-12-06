@@ -51,7 +51,6 @@ angular.module('sdpApp')
 
       $scope.reviewDocData = {};
       $scope.requestDocs = function(){
-        console.log($scope.reviewDocData);
 
         angular.forEach($scope.reviewDocData.isAcceptAs, function(value,key){
                 var obj = {
@@ -61,10 +60,7 @@ angular.module('sdpApp')
                   };
                   $scope.loanCurrent.docs.unshift(obj);
         });
-
-        //$scope.loanCurrent.docs.push()
       }
-
 
       $(function () {
         $('[data-toggle="tooltip"]').tooltip()

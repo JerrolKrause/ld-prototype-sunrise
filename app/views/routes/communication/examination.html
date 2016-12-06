@@ -3,7 +3,7 @@ body{padding-bottom:60px;}
 main{padding-top:0px;}
 </style>
 
-<div class="container-fluid header-info">
+<div class="container-fluid header-info fadeIn">
     <div class="d-inline-block">
         <p>
             <strong ng-bind="'Loan# ' + loanCurrent.loanNum"></strong><br />
@@ -49,8 +49,8 @@ main{padding-top:0px;}
 </div>
 
 
-<div class="container-fluid"><br/>
-  <a ui-sref="communication" class="pull-xs-right" ><strong><i class="fa fa-caret-left"></i> Go Back</strong> to Dashboard</a>
+<div class="container-fluid fadeIn"><br/>
+  <a ui-sref="communication" ui-sref-opts="{ reload: true }" class="pull-xs-right" ><strong><i class="fa fa-caret-left"></i> Go Back</strong> to Dashboard</a>
   <h1>Viewing Loan#: <strong ng-bind="loanCurrent.loanNum"></strong></h1>
   <hr/>
   <button class="btn btn-blue btn-sm pull-xs-right" data-toggle="modal" data-target="#modalEmailBorrowers" ng-click="step = 1"><i class="fa fa-envelope"></i> Send Notification To Borrowers</button>
@@ -97,10 +97,10 @@ main{padding-top:0px;}
                   </table>
               </div>
 
-<button class="btn btn-blue btn-sm pull-xs-right" data-toggle="modal" data-target="#modalApproveAs"><i class="fa fa-file" aria-hidden="true"></i> Request New Docs</button>
+<button class="btn btn-blue btn-sm pull-xs-right" data-toggle="modal" data-target="#modalRequest"><i class="fa fa-file" aria-hidden="true"></i> Request New Docs</button>
 <h2 class="title"><i class="fa fa-search-plus"></i> Documents Borrower Needs To Upload</h2>
     <div class="card">
-  
+
       <table border="0" class="table table-sm table-bordered table-hover angular-table" id="requestTable" ts-wrapper>
                           <thead class="thead-default">
                               <tr>

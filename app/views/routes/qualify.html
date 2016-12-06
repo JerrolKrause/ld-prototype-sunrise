@@ -84,8 +84,8 @@
                   <td class="text-xs-right"><strong style="color:#75b534;">1:25</strong></td>
                 </tr>
               </table>
-
-              <h3 class="text-xs-left"><i class="fa fa-hourglass" aria-hidden="true"></i> Status</h3>
+              <hr/>
+              <h3 class="text-xs-left"><i class="fa fa-hourglass blue" aria-hidden="true"></i> Status</h3>
               <hr/>
               <i class="fa fa-thumbs-up pull-xs-left"></i>
               <div class="progress2">
@@ -109,14 +109,14 @@
   </div>
 
 <div class="fadeIn">
-<a ui-sref="qualify.examination({ LoanID: 20029384 })" class="btn btn-ld pull-xs-right"><i class="fa fa-hand-o-right" aria-hidden="true"></i> Begin Examination</a>
+<a ui-sref="qualify.examination({ LoanID: 20029384 })" class="btn btn-ld btn-sm pull-xs-right"><i class="fa fa-hand-o-right" aria-hidden="true"></i> Begin Examination</a>
   <h2 class="title"><i class="fa fa-file-text" aria-hidden="true"></i> <span ng-bind="loanData.length"></span> Documents Pending Review</h2>
     <div class="card">
       <table border="0" class="table table-sm table-bordered table-striped table-hover angular-table no-footer" role="grid" aria-describedby="example3_info" ts-wrapper>
                     <thead class="thead-default">
                         <tr role="row">
                             <th scope="col" ts-criteria="loanNum" style="width: 115px;">Loan Number</th>
-                            <th>Loan Status</th>
+                            <th scope="col" ts-criteria="loanStatus">Loan Status</th>
                             <th scope="col" ts-criteria="docs">Document Name</th>
                             <th scope="col" ts-criteria="borrowers" style="width:27%;">Borrower Name (s)</th>
                             <th scope="col" ts-criteria="inQueue" ts-default="descending" style="width: 125px;">Time in Queue</th>
@@ -129,13 +129,12 @@
                             </th>
                             <th>
                               <label class="filter">
-                                  <input class="form-control form-control-sm" placeholder="Filter loan #" ng-model="vm.search.loanStatus" />
+                                  <input class="form-control form-control-sm" placeholder="Filter loan status" ng-model="vm.search.loanStatus" />
                               </label>
                             </th>
                             <th>
-                              <label class="filter">
-                                  <input class="form-control form-control-sm" placeholder="Filter by doc name" ng-model="vm.search.docs" />
-                              </label></th>
+
+                            </th>
                             <th>
                               <label class="filter">
                                   <input class="form-control form-control-sm" placeholder="Filter by borrower Name" ng-model="vm.search.borrowers" />

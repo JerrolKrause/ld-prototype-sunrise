@@ -6,117 +6,89 @@
 <div class="fadeIn">
   <div class="card">
       <div class="card-block">
+
         <div class="row">
 
-            <div class="col-xs-12 col-md-4 fadeIn">
-              <h3><i class="fa fa-clock-o" aria-hidden="true"></i> Time In Queue</h3>
-              <hr/>
-              <div class="pie-box">
-                <style>
-                  .pie-1:before{transform:rotate(31deg);}
-                  .pie-2:before{transform:rotate(60deg);}
-                  .pie-3:before{transform:rotate(261deg);}
-                </style>
-                <div class="pie pie-1" style="transform:rotate(0deg);"></div>
-                <div class="pie pie-2" style="transform:rotate(30deg);"></div>
-                <div class="pie pie-3 big" style="transform:rotate(100deg);"></div>
-              </div>
-              <table class="table table-sm">
-                <tbody>
-                    <tr>
-                      <td>2 minutes or less</td>
-                      <td class="text-xs-right" ng-bind="stats.green">154</td>
-                    </tr>
-                    <tr>
-                      <td>5 minutes or less</td>
-                      <td class="text-xs-right" ng-bind="stats.yellow">297</td>
-                    </tr>
-                    <tr>
-                      <td>More than 5 minutes</td>
-                      <td class="text-xs-right" ng-bind="stats.red">460</td>
-                    </tr>
-                </tbody>
-              </table>
+          <div class="col-xs-12 col-md-4 fadeIn" style="animation-delay:.2s;">
+            <h3 class="pull-xs-right  total-docs"><strong>6,450</strong></h3>
+            <h3><i class="fa fa-file" aria-hidden="true"></i> Loans In Process</h3>
+            <hr/>
+            <h3><i class="fa fa-heartbeat" aria-hidden="true"></i> Health</h3>
+            <table class="table table-striped table-sm table-stats">
+              <tr>
+                <td>Loans Reviewed/Hour</td>
+                <td class="text-xs-right"><strong>1,260</strong></td>
+              </tr>
+              <tr>
+                <td>Loans Reviewed Yesterday</td>
+                <td class="text-xs-right"><strong>7,650</strong></td>
+              </tr>
+              <tr>
+                <td>Average Response Time From Processor</td>
+                <td class="text-xs-right"><strong style="color:#a90329;">3:11:36</strong></td>
+              </tr>
+            </table>
+          </div>
+
+          <div class="col-xs-12 col-md-4 fadeIn" style="animation-delay:.3s;">
+            <h3 class="text-xs-left"><i class="fa fa-hourglass" aria-hidden="true"></i> Status</h3>
+            <hr/>
+            <div class="pie-box">
+              <style>
+                .pie-1:before{transform:rotate(31deg);}
+                .pie-2:before{transform:rotate(60deg);}
+                .pie-3:before{transform:rotate(261deg);}
+              </style>
+              <div class="pie pie-1" style="transform:rotate(0deg);"></div>
+              <div class="pie pie-2" style="transform:rotate(30deg);"></div>
+              <div class="pie pie-3 big" style="transform:rotate(130deg);"></div>
             </div>
+            <table class="table table-sm">
+              <tbody>
+                  <tr>
+                    <td><small>Waiting On Borrower</small></td>
+                    <td class="text-xs-right" ><small><strong>5,652</strong></small></td>
+                  </tr>
+                  <tr>
+                    <td><small>Waiting On Processor</small></td>
+                    <td class="text-xs-right"><small><strong>1,343</strong></small></td>
+                  </tr>
+              </tbody>
+            </table>
 
-            <div class="col-xs-12 col-md-4 fadeIn" style="animation-delay:.1s;">
-              <h3><i class="fa fa-calendar" aria-hidden="true"></i> Daily Progress</h3>
-              <hr/>
-              <ul class="chart">
-                <li><span style="height:50%" title="50"></span></li>
-                <li><span style="height:15%" title="15"></span></li>
-                <li><span style="height:35%" title="35"></span></li>
-                <li><span style="height:55%" title="55"></span></li>
-                <li><span style="height:100%" title="100"></span></li>
-                <li><span style="height:50%" title="54"></span></li>
-                <li><span style="height:15%" title="15"></span></li>
-              </ul>
+          </div>
 
-              <div style="height:30px;"></div>
-
-              <h3><i class="fa fa-calendar" aria-hidden="true"></i> Weekly Progress</h3>
-              <hr/>
-              <ul class="chart">
-                <li><span style="height:25%" title="25"></span></li>
-                <li><span style="height:65%" title="65"></span></li>
-                <li><span style="height:98%" title="98"></span></li>
-                <li><span style="height:85%" title="85"></span></li>
-                <li><span style="height:76%" title="76"></span></li>
-                <li><span style="height:56%" title="56"></span></li>
-                <li><span style="height:76%" title="76"></span></li>
-              </ul>
-            </div>
-
-            <div class="col-xs-12 col-md-4 fadeIn" style="animation-delay:.2s;">
-              <h3><i class="fa fa-heartbeat" aria-hidden="true"></i> Loans Processed Hourly Break Down</h3>
-              <hr/>
-              <table class="table table-striped table-sm table-stats">
-                <tr>
-                  <td>Docs Reviewed/Hour</td>
-                  <td class="text-xs-right"><strong>134</strong></td>
-                </tr>
-                <tr>
-                  <td>Docs Reviewed Yesterday</td>
-                  <td class="text-xs-right"><strong>624</strong></td>
-                </tr>
-                <tr>
-                  <td>Average Time In Queue</td>
-                  <td class="text-xs-right"><strong style="color:#75b534;">1:25</strong></td>
-                </tr>
-              </table>
-              <hr/>
-              <h3 class="text-xs-left"><i class="fa fa-hourglass" aria-hidden="true"></i> Status</h3>
-              <hr/>
-              <i class="fa fa-thumbs-up pull-xs-left"></i>
-              <div class="progress2">
-                  <div class="progress2-bar green" style="width:75%;">1,465</div>
-              </div>
-
-              <i class="fa fa-thumbs-up pull-xs-left"></i>
-              <div class="progress2">
-                  <div class="progress2-bar blue" style="width:15%;">367</div>
-              </div>
-
-              <i class="fa fa-thumbs-down pull-xs-left"></i>
-              <div class="progress2">
-                  <div class="progress2-bar red" style="width:10%;">201</div>
-              </div>
-            </div>
-
+          <div class="col-xs-12 col-md-4 fadeIn" style="animation-delay:.4s;">
+            <h3><i class="fa fa-calendar" aria-hidden="true"></i> Processed Loans Per Day</h3>
+            <hr/>
+            <ul class="chart">
+              <li><span style="height:85%" title="367"></span></li>
+              <li><span style="height:75%" title="252"></span></li>
+              <li><span style="height:80%" title="151"></span></li>
+              <li><span style="height:90%" title="351"></span></li>
+              <li><span style="height:85%" title="475"></span></li>
+              <li><span style="height:40%" title="340"></span></li>
+              <li><span style="height:47%" title="140"></span></li>
+            </ul>
+          </div>
         </div>
+
       </div>
-  </div>
+    </div>
   </div>
 
 <div class="fadeIn">
-<a ui-sref="communication.examination({ LoanID: loanData[0].loanNum })" class="btn btn-ld pull-xs-right"><i class="fa fa-hand-o-right" aria-hidden="true"></i> Begin Examination</a>
-  <h2 class="title"><i class="fa fa-file-text" aria-hidden="true"></i> <span ng-bind="loanData.length"></span> Documents Pending Review</h2>
+  <!---->
+<a href="" class="btn btn-ld btn-sm pull-xs-right" data-toggle="modal" data-target="#modalSearchLoans"><i class="fa fa-search" aria-hidden="true"></i> Search Loans</a>
+
+  <h2 class="title"><i class="fa fa-file-text" aria-hidden="true"></i> <span ng-bind="loanData.length"></span> <span ng-bind="titleText || 'Documents Pending Review'"></span>
+    <a href="" ng-click="searchClear()" style="font-size:12px;" ng-show="titleText"><em><i class="fa fa-times" aria-hidden="true"></i> Clear Search Results</em></a></h2>
     <div class="card">
       <table border="0" class="table table-sm table-bordered table-striped table-hover angular-table no-footer" role="grid" aria-describedby="example3_info" ts-wrapper>
                     <thead class="thead-default">
                         <tr role="row">
                             <th scope="col" ts-criteria="loanNum" style="width: 115px;">Loan Number</th>
-                            <th>Loan Status</th>
+                            <th scope="col" ts-criteria="loanStatus">Loan Status</th>
                             <th scope="col" ts-criteria="docs">Document Name</th>
                             <th scope="col" ts-criteria="borrowers" style="width:27%;">Borrower Name (s)</th>
                             <th scope="col" ts-criteria="inQueue" ts-default="descending" style="width: 125px;">Last Contact</th>
@@ -130,13 +102,11 @@
                             </th>
                             <th>
                               <label class="filter">
-                                  <input class="form-control form-control-sm" placeholder="Filter loan #" ng-model="vm.search.loanStatus" />
+                                  <input class="form-control form-control-sm" placeholder="Filter loan status" ng-model="vm.search.loanStatus" />
                               </label>
                             </th>
                             <th>
-                              <label class="filter">
-                                  <input class="form-control form-control-sm" placeholder="Filter by doc name" ng-model="vm.search.docs" />
-                              </label></th>
+                            </th>
                             <th>
                               <label class="filter">
                                   <input class="form-control form-control-sm" placeholder="Filter by borrower Name" ng-model="vm.search.borrowers" />
@@ -183,4 +153,6 @@
 
 
 </div>
+
+<div ng-include="'views/modals/modal_searchLoans.html'"></div>
 </ui-view>

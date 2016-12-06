@@ -26,8 +26,8 @@ angular.module('sdpApp')
                 {"label":"Partnership tax returns (1065s)","image":"ira-statement.png","status":"approved","queueStatus":"not-reviewed","queueStatus2":false,"notes":"","id":7},
                 {"label":"VA benefit statement","image":"award.jpg","status":"requested","queueStatus":"approved","queueStatus2":"declined","notes":"","id":8}
               ],
-              inQueue:2,
-              loanNum:20029384,
+              inQueue:8,
+              loanNum:22222222,
               loanStatus:"Pending UW"
           };
 
