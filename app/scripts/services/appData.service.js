@@ -19,11 +19,12 @@ angular.module('sdpApp')
                 {"label":"W2","image":"1099R.gif","status":"new","queueStatus":"declined","notes":"Document is not a W2","id":0,"pane1":true},
                 {"label":"Tip income","image":"foreign-tax-credit.png","status":"approved","queueStatus":"approved","queueStatus2":"declined","notes":"Document numbers to not match up, please re-request","id":1},
                 {"label":"Rental income","image":"1120.jpg","status":"new","queueStatus":"approved","queueStatus2":"not-reviewed","notes":"","id":2},
-                {"label":"Interest income ","image":"k1.png","status":"requested","queueStatus":"approved","queueStatus2":"not-reviewed","notes":"","id":3},
                 {"label":"Child support income ","image":"k1.png","status":"new","queueStatus":"approved","queueStatus2":"approved","notes":"","id":4},
                 {"label":"K1","image":"award.jpg","status":"new","queueStatus":"approved","queueStatus2":"not-reviewed","notes":"","id":5},
-                {"label":"Bank Statement ","image":"1120.jpg","status":"requested","queueStatus":"approved","queueStatus2":"approved","notes":"","id":6},
                 {"label":"Partnership tax returns (1065s)","image":"ira-statement.png","status":"approved","queueStatus":"not-reviewed","queueStatus2":false,"notes":"","id":7},
+
+                {"label":"Interest income ","image":"k1.png","status":"requested","queueStatus":"approved","queueStatus2":"not-reviewed","notes":"","id":3},
+                {"label":"Bank Statement ","image":"1120.jpg","status":"requested","queueStatus":"approved","queueStatus2":"declined","notes":"","id":6},
                 {"label":"VA benefit statement","image":"award.jpg","status":"requested","queueStatus":"approved","queueStatus2":"declined","notes":"","id":8}
               ],
               inQueue:8,

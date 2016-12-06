@@ -33,7 +33,7 @@
                     </tr>
                     <tr>
                       <td>More than 5 minutes</td>
-                      <td class="text-xs-right" ng-bind="stats.red">460</td>
+                      <td class="text-xs-right alert-stat" ng-bind="stats.red"><strong style="color:#a90329">460</strong></td>
                     </tr>
                 </tbody>
               </table>
@@ -43,13 +43,13 @@
               <h3><i class="fa fa-calendar" aria-hidden="true"></i> Daily Progress</h3>
               <hr/>
               <ul class="chart">
-                <li><span style="height:50%" title="50"></span></li>
-                <li><span style="height:15%" title="15"></span></li>
-                <li><span style="height:35%" title="35"></span></li>
-                <li><span style="height:55%" title="55"></span></li>
-                <li><span style="height:100%" title="100"></span></li>
-                <li><span style="height:50%" title="54"></span></li>
-                <li><span style="height:15%" title="15"></span></li>
+                <li><span style="height:50%" title="M 150"></span></li>
+                <li><span style="height:15%" title="T 115"></span></li>
+                <li><span style="height:35%" title="W 135"></span></li>
+                <li><span style="height:55%" title="T 155"></span></li>
+                <li><span style="height:100%" title="F 100"></span></li>
+                <li><span style="height:50%" title="S 154"></span></li>
+                <li><span style="height:15%" title="S 115"></span></li>
               </ul>
 
               <div style="height:30px;"></div>
@@ -57,13 +57,13 @@
               <h3><i class="fa fa-calendar" aria-hidden="true"></i> Weekly Progress</h3>
               <hr/>
               <ul class="chart">
-                <li><span style="height:25%" title="25"></span></li>
-                <li><span style="height:65%" title="65"></span></li>
-                <li><span style="height:98%" title="98"></span></li>
-                <li><span style="height:85%" title="85"></span></li>
-                <li><span style="height:76%" title="76"></span></li>
-                <li><span style="height:56%" title="56"></span></li>
-                <li><span style="height:76%" title="76"></span></li>
+                <li><span style="height:25%" title="M 251"></span></li>
+                <li><span style="height:65%" title="T 651"></span></li>
+                <li><span style="height:98%" title="W 918"></span></li>
+                <li><span style="height:85%" title="T 851"></span></li>
+                <li><span style="height:76%" title="F 716"></span></li>
+                <li><span style="height:56%" title="S 516"></span></li>
+                <li><span style="height:76%" title="S 716"></span></li>
               </ul>
             </div>
 
@@ -88,16 +88,19 @@
               <h3 class="text-xs-left"><i class="fa fa-hourglass" aria-hidden="true"></i> Status</h3>
               <hr/>
               <i class="fa fa-thumbs-up pull-xs-left"></i>
+              <h3>Approved</h3>
               <div class="progress2">
                   <div class="progress2-bar green" style="width:75%;">1,465</div>
               </div>
 
               <i class="fa fa-thumbs-up pull-xs-left"></i>
+              <h3>Approved As</h3>
               <div class="progress2">
                   <div class="progress2-bar blue" style="width:15%;">367</div>
               </div>
 
               <i class="fa fa-thumbs-down pull-xs-left"></i>
+              <h3>Declined</h3>
               <div class="progress2">
                   <div class="progress2-bar red" style="width:10%;">201</div>
               </div>
@@ -110,7 +113,8 @@
 
 
 <div class="fadeIn">
-<a ui-sref="accuracy.examination" class="btn btn-ld btn-sm pull-xs-right"><i class="fa fa-hand-o-right" aria-hidden="true"></i> Begin Examination</a>
+
+<a ui-sref="accuracy.examination" class="btn btn-ld btn-sm btn-work pull-xs-right"><i class="fa fa-hand-o-right" aria-hidden="true"></i> Begin Examination</a>
   <h2 class="title"><i class="fa fa-file-text" aria-hidden="true"></i> <span ng-bind="loanData.length"></span> Documents Pending Review</h2>
     <div class="card">
       <table border="0" class="table table-sm table-bordered table-striped table-hover angular-table no-footer" role="grid" aria-describedby="example3_info" ts-wrapper>
@@ -121,6 +125,7 @@
                             <th scope="col" ts-criteria="docs">Document Name</th>
                             <th scope="col" ts-criteria="borrowers" style="width:27%;">Borrower Name (s)</th>
                             <th scope="col" ts-criteria="inQueue" ts-default="descending" style="width: 125px;">Time in Queue</th>
+
                         </tr>
                         <tr class="filter">
                             <th>
@@ -134,7 +139,7 @@
                               </label>
                             </th>
                             <th>
-                              
+
                             </th>
                             <th>
                               <label class="filter">
@@ -146,7 +151,7 @@
                     </thead>
                     <tbody>
                         <tr ng-repeat="ld in loanData | filter:vm.search track by $index" ts-repeat>
-                          <td>
+                          <td  ng-bind="ld.loanNum">
                             <a href="" ui-sref="accuracy.examination"  ng-bind="ld.loanNum"></a>
                           </td>
                           <td ng-bind="ld.loanStatus"></td>

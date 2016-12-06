@@ -22,7 +22,7 @@
       cursor: pointer;border-radius: 0.2rem;overflow:hidden;
       img{border:1px solid #ccc;}
     }
-     .table{margin:0;}
+     .table{margin:0!important;}
 }
 .title + .card{border-top: solid 3px #5e9aca;}
 //Modals
@@ -101,6 +101,16 @@ ul{
         .showIfLast{display:none;}
     }//end angular-table
 
+
+    &.table-borrowerInfo{
+          font-size: 13px;
+      td:first-child {
+          color: #ccc;
+          padding-left: 10px;
+      }
+    }
+
+
     &.table-stats{
       font-size:0.85rem;
       .thead-default th{color:#666b6f;font-size: 12px;}
@@ -114,6 +124,7 @@ ul{
             th:nth-child(3){ width: 180px;}
         }
     }
+
 }
 
 
@@ -162,6 +173,7 @@ ul{
 
 
 .review-docs{ padding: 10px;padding-bottom:20px;color: #fff;background: rgba(0,0,0,0.85);}
+
 //Dashboard
 .total-docs{
     color: #a90329;
@@ -172,3 +184,25 @@ ul{
 }
 .pull-xs-left {
 margin-right: 5px;}
+
+
+.card-block{
+
+    padding-bottom: 2.25REM;
+}
+
+.alert-stat{
+    color: #a90329;
+    font-weight: bold;
+}
+
+.card .table {
+    margin-bottom: 20px;}
+
+label.filter {
+    display: none;
+}
+.btn.btn-work{
+   background: linear-gradient(#a90329 0%, #8f0222 44%, #6d0019 100%);
+    border: solid 1px #6F0119;
+}

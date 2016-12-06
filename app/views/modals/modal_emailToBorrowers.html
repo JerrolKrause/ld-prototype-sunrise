@@ -32,10 +32,15 @@
                         </div>
 
                         <div ng-show="step == 1">
-                            <h5>You are requesting the following documents from the Borrower's</h5>
+                            <h5>You are <strong>requesting</strong> the following documents from the Borrower's</h5>
                             <ul>
                               <li ng-repeat="doc in loanCurrent.docs" ng-if="doc.status == 'requested' && !doc.hasAction"  ng-bind="doc.label"></li>
                               <li ng-repeat="doc in loanCurrent.docs" ng-if="doc.hasAction"  ng-bind="doc.label"></li>
+                            </ul>
+
+                            <h5>You are <strong>confirming</strong> the following documents</h5>
+                            <ul>
+                              <li ng-repeat="doc in loanCurrent.docs" ng-if="doc.queueStatus === 'approved' && doc.queueStatus2 === 'approved'"  ng-bind="doc.label"></li>
                             </ul>
 
                             <h5>Please enter a message for the borrower(s)</h5>
@@ -81,7 +86,20 @@
                                                 <table class="spacer ten" style="border-spacing: 0; border-collapse: collapse; vertical-align: top; text-align: left; width: 100%; padding: 0;"><tr style="vertical-align: top; text-align: left; padding: 0;" align="left"><td height="10px" style="word-wrap: break-word; -webkit-hyphens: auto; -moz-hyphens: auto; hyphens: auto; border-collapse: collapse !important; vertical-align: top; text-align: left; mso-line-height-rule: exactly; color: #0a0a0a; font-family: Helvetica, Arial, sans-serif; font-weight: normal; line-height: 10px; font-size: 10px; margin: 0; padding: 0;" align="left" valign="top"> </td>
                                                   </tr></table>
                                                                                                                                     <br>
-                                                <table>
+                                                <table><tr>
+                                                                <td><b>Required docs need to be uploaded</b></td></tr>
+                                                <tr><td><ul>
+                                                  <li ng-repeat="doc in loanCurrent.docs" ng-if="doc.status == 'requested' && !doc.hasAction"  ng-bind="doc.label"></li>
+                                                  <li ng-repeat="doc in loanCurrent.docs" ng-if="doc.hasAction"  ng-bind="doc.label"></li>
+                                                                              </ul></td>
+                                                </tr>
+
+                                                <tr>
+                                                                <td><b>Docs that have been approved</b></td></tr>
+                                                <tr><td><ul>
+                                                  <li ng-repeat="doc in loanCurrent.docs" ng-if="doc.queueStatus === 'approved' && doc.queueStatus2 === 'approved'"  ng-bind="doc.label"></li>
+                                                                              </ul></td>
+                                                </tr>
                                                                                                                                     <tr>
                                                                                                                                                     <td><b>Docs Received</b></td></tr><tr><td>
                                                                                                                                                     <ul>
@@ -90,13 +108,7 @@
                                                                                                                                                     </ul>
                                                                                                                                                     </td>
                                                                                                                                     </tr>
-                                                                                                                                    <tr>
-                                                                                                                                                    <td><b>Required docs need to be uploaded</b></td></tr>
-                                                                                                                                    <tr><td><ul>
-                                                                                                                                      <li ng-repeat="doc in loanCurrent.docs" ng-if="doc.status == 'requested' && !doc.hasAction"  ng-bind="doc.label"></li>
-                                                                                                                                      <li ng-repeat="doc in loanCurrent.docs" ng-if="doc.hasAction"  ng-bind="doc.label"></li>
-                                                                                                                                                                  </ul></td>
-                                                                                                                                    </tr>
+
                                                                                                                                     <tr>
                                                                                                                                                     <td><b>Special message from your processor</b></td></tr>
                                                                                                                                                     <tr><td>

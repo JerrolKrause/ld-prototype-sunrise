@@ -33,7 +33,7 @@
                     </tr>
                     <tr>
                       <td>More than 5 minutes</td>
-                      <td class="text-xs-right" ng-bind="stats.red">460</td>
+                      <td class="text-xs-right alert-stat" ng-bind="stats.red">460</td>
                     </tr>
                 </tbody>
               </table>
@@ -43,16 +43,16 @@
               <h3><i class="fa fa-calendar" aria-hidden="true"></i> Daily Progress</h3>
               <hr/>
               <ul class="chart">
-                <li><span style="height:50%" title="50"></span></li>
-                <li><span style="height:15%" title="15"></span></li>
-                <li><span style="height:35%" title="35"></span></li>
-                <li><span style="height:55%" title="55"></span></li>
-                <li><span style="height:100%" title="100"></span></li>
-                <li><span style="height:50%" title="54"></span></li>
-                <li><span style="height:15%" title="15"></span></li>
+                <li><span style="height:50%" title="M 50"></span></li>
+                <li><span style="height:15%" title="T 15"></span></li>
+                <li><span style="height:35%" title="W 35"></span></li>
+                <li><span style="height:55%" title="R 55"></span></li>
+                <li><span style="height:100%" title="F 100"></span></li>
+                <li><span style="height:50%" title="S 54"></span></li>
+                <li><span style="height:15%" title="S 15"></span></li>
               </ul>
 
-              <div style="height:30px;"></div>
+              <div style="height:40px;"></div>
 
               <h3><i class="fa fa-calendar" aria-hidden="true"></i> Weekly Progress</h3>
               <hr/>
@@ -88,16 +88,19 @@
               <h3 class="text-xs-left"><i class="fa fa-hourglass blue" aria-hidden="true"></i> Status</h3>
               <hr/>
               <i class="fa fa-thumbs-up pull-xs-left"></i>
+              <h3>Approved</h3>
               <div class="progress2">
                   <div class="progress2-bar green" style="width:75%;">1,465</div>
               </div>
 
               <i class="fa fa-thumbs-up pull-xs-left"></i>
+              <h3>Approved As</h3>
               <div class="progress2">
                   <div class="progress2-bar blue" style="width:15%;">367</div>
               </div>
 
               <i class="fa fa-thumbs-down pull-xs-left"></i>
+              <h3>Declined</h3>
               <div class="progress2">
                   <div class="progress2-bar red" style="width:10%;">201</div>
               </div>
@@ -109,19 +112,21 @@
   </div>
 
 <div class="fadeIn">
-<a ui-sref="qualify.examination({ LoanID: 20029384 })" class="btn btn-ld btn-sm pull-xs-right"><i class="fa fa-hand-o-right" aria-hidden="true"></i> Begin Examination</a>
+
+<a ui-sref="qualify.examination({ LoanID: 22222222 })" class="btn btn-ld btn-sm btn-work pull-xs-right"><i class="fa fa-hand-o-right" aria-hidden="true"></i> Begin Examination</a>
+
   <h2 class="title"><i class="fa fa-file-text" aria-hidden="true"></i> <span ng-bind="loanData.length"></span> Documents Pending Review</h2>
     <div class="card">
       <table border="0" class="table table-sm table-bordered table-striped table-hover angular-table no-footer" role="grid" aria-describedby="example3_info" ts-wrapper>
                     <thead class="thead-default">
                         <tr role="row">
-                            <th scope="col" ts-criteria="loanNum" style="width: 115px;">Loan Number</th>
-                            <th scope="col" ts-criteria="loanStatus">Loan Status</th>
-                            <th scope="col" ts-criteria="docs">Document Name</th>
-                            <th scope="col" ts-criteria="borrowers" style="width:27%;">Borrower Name (s)</th>
-                            <th scope="col" ts-criteria="inQueue" ts-default="descending" style="width: 125px;">Time in Queue</th>
+                          <th scope="col" ts-criteria="loanNum" style="width: 115px;">Loan Number</th>
+                          <th scope="col" ts-criteria="loanStatus">Loan Status</th>
+                          <th scope="col" ts-criteria="docs">Document Name</th>
+                          <th scope="col" ts-criteria="borrowers" style="width:27%;">Borrower Name (s)</th>
+                          <th scope="col" ts-criteria="inQueue" ts-default="descending" style="width: 125px;">Time in Queue</th>
                         </tr>
-                        <tr class="filter">
+                        <tr>
                             <th>
                                 <label class="filter">
                                     <input class="form-control form-control-sm" placeholder="Filter loan #" ng-model="vm.search.loanNum" />
@@ -145,25 +150,25 @@
                     </thead>
                     <tbody>
                         <tr ng-repeat="ld in loanData | filter:vm.search track by $index" ts-repeat>
-                          <td>
+                          <td ng-bind="ld.loanNum">
                             <a href="" ui-sref="qualify.examination({ LoanID: ld.loanNum })"  ng-bind="ld.loanNum"></a>
                           </td>
                           <td ng-bind="ld.loanStatus"></td>
                           <td>
-                              <a href="" class="pull-xs-right" data-toggle="tooltip" data-placement="right" data-html="true" attrs="item" title="
-                              Partnership tax returns (1065s)<br/>
-                              Alimony<br/>
-                              1099R<br/>
-                              Foster care<br/>
-                              W2<br/>
-                              Rental income<br/>
-                              IRA statement<br/>
-                              W2<br/>
-                              VA benefit statement<br/>
-                              Partnership tax returns (1065s)<br/>
-                              Award letter
-                              "><i class="fa fa-files-o" aria-hidden="true"></i></a>
-                              {{ld.docs.length}} Documents
+                            <a href="" class="pull-xs-right" data-toggle="tooltip" data-placement="right" data-html="true" attrs="item" title="
+                            Partnership tax returns (1065s)<br/>
+                            Alimony<br/>
+                            1099R<br/>
+                            Foster care<br/>
+                            W2<br/>
+                            Rental income<br/>
+                            IRA statement<br/>
+                            W2<br/>
+                            VA benefit statement<br/>
+                            Partnership tax returns (1065s)<br/>
+                            Award letter
+                            "><i class="fa fa-files-o" aria-hidden="true"></i></a>
+                            {{ld.docs.length}} Documents
                           </td>
                           <td>
                             <div ng-bind="ld.borrowerSingle"></div>

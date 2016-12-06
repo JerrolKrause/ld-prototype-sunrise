@@ -34,6 +34,11 @@ angular.module('sdpApp')
             value.hasAction = true;
           }
 
+          if(value.queueStatus === 'approved' && value.queueStatus2 === 'approved'){
+            value.hasAction = true;
+          }
+
+
         });
 
 
@@ -64,6 +69,10 @@ angular.module('sdpApp')
 
       $(function () {
         $('[data-toggle="tooltip"]').tooltip()
+      });
+
+      $(function () {
+        $('[data-toggle="popover"]').popover()
       })
 
       console.log($scope.loanCurrent);

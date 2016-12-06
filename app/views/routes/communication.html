@@ -62,13 +62,13 @@
             <h3><i class="fa fa-calendar" aria-hidden="true"></i> Processed Loans Per Day</h3>
             <hr/>
             <ul class="chart">
-              <li><span style="height:85%" title="367"></span></li>
-              <li><span style="height:75%" title="252"></span></li>
-              <li><span style="height:80%" title="151"></span></li>
-              <li><span style="height:90%" title="351"></span></li>
-              <li><span style="height:85%" title="475"></span></li>
-              <li><span style="height:40%" title="340"></span></li>
-              <li><span style="height:47%" title="140"></span></li>
+              <li><span style="height:85%" title="M 367"></span></li>
+              <li><span style="height:75%" title="T 252"></span></li>
+              <li><span style="height:80%" title="W 151"></span></li>
+              <li><span style="height:90%" title="T 351"></span></li>
+              <li><span style="height:85%" title="F 475"></span></li>
+              <li><span style="height:40%" title="S 340"></span></li>
+              <li><span style="height:47%" title="S 140"></span></li>
             </ul>
           </div>
         </div>
@@ -81,10 +81,10 @@
   <!---->
 <a href="" class="btn btn-ld btn-sm pull-xs-right" data-toggle="modal" data-target="#modalSearchLoans"><i class="fa fa-search" aria-hidden="true"></i> Search Loans</a>
 
-  <h2 class="title"><i class="fa fa-file-text" aria-hidden="true"></i> <span ng-bind="loanData.length"></span> <span ng-bind="titleText || 'Documents Pending Review'"></span>
+  <h2 class="title"><i class="fa fa-file-text" aria-hidden="true"></i> <span ng-bind="loanData.length"></span> <span ng-bind="titleText || 'Loans Pending Review'"></span>
     <a href="" ng-click="searchClear()" style="font-size:12px;" ng-show="titleText"><em><i class="fa fa-times" aria-hidden="true"></i> Clear Search Results</em></a></h2>
     <div class="card">
-      <table border="0" class="table table-sm table-bordered table-striped table-hover angular-table no-footer" role="grid" aria-describedby="example3_info" ts-wrapper>
+      <table border="0" class="table table-sm table-bordered table-hover angular-table no-footer" role="grid" aria-describedby="example3_info" ts-wrapper>
                     <thead class="thead-default">
                         <tr role="row">
                             <th scope="col" ts-criteria="loanNum" style="width: 115px;">Loan Number</th>
@@ -142,9 +142,9 @@
                             <div ng-bind="ld.borrowerSingle"></div>
                           </td>
                           <td class="text-xs-center" ng-class="{'red' : ld.inQueue > 4}">
-                              <span ng-bind="ld.inQueue"></span> days/s
+                              <span ng-bind="ld.inQueue"></span> day/s
                           </td>
-                          <td class="text-xs-center">{{ld.docs.length}}</td>
+                          <td class="text-xs-center" style="background: #fff8ed;"><strong>{{ld.docs.length}}</strong></td>
                         </tr>
                     </tbody>
                 </table>

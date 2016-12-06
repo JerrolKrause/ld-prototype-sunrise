@@ -49,7 +49,7 @@ angular.module('sdpApp')
       }
 
       $scope.statsCQ = {
-        totalDocs : 6453,
+        totalDocs : 253,
         hourDocs  : 1260,
         timeout   : 25,
         approved : 512,
@@ -70,7 +70,7 @@ angular.module('sdpApp')
           $scope.statsQQ.hourDocs = 334 + Math.floor((Math.random() * range) + 1);
           $scope.statsQQ.timeout = 25 + Math.floor((Math.random() * range) + 1);
 
-          $scope.statsCQ.totalDocs = 6453 + Math.floor((Math.random() * 200) + 1);
+          $scope.statsCQ.totalDocs = 253 + Math.floor((Math.random() * 200) + 1);
           $scope.statsCQ.hourDocs = 1260 + Math.floor((Math.random() * range) + 1);
           $scope.statsCQ.timeout = 25 + Math.floor((Math.random() * range) + 1);
       }

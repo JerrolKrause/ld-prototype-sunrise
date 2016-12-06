@@ -19,6 +19,24 @@
                             </select>
                         </div>
                     </p>
+
+                    <div ng-if="!loanCurrent.borrowers">
+                    <h5>Does the borrower still need to provide <strong ng-bind="documentActive.label"></strong>?</h5>
+                    <fieldset class="form-group">
+                            <div class="form-check">
+                                <label class="form-check-label">
+                                    <input checked type="radio" class="form-check-input ng-pristine ng-untouched ng-valid ng-not-empty" name="optionsRadios" value="1" ng-checked="true"> Yes
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <label class="form-check-label">
+                                    <input  type="radio" class="form-check-input ng-pristine ng-untouched ng-valid ng-not-empty" name="optionsRadios" value="2" > No
+                                </label>
+                            </div>
+
+                        </fieldset>
+                      </div>
+
                     <div ng-if="loanCurrent.borrowers">
                     <h5>Choose Borrowers</h5>
                     <div class="form-check" ng-repeat="borrower in loanCurrent.borrowers">
